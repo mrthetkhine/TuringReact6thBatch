@@ -1,0 +1,24 @@
+<html>
+   
+    <script>
+        let str = 'Hello from "JavaScript" ';
+        console.log(str);
+        console.log('Typeof string ',typeof str);
+
+        str ="Hello from \"JavaScript\"";
+        console.log(str);
+
+        let price = 20;
+        let quantity = 3;
+
+        str = "Price is "+price + " and quantity is "+ quantity + "\r\n Total is "+(price*quantity);
+        console.log(str);
+
+        str = `
+Price is ${price}
+Qty is ${quantity}
+Total = ${price*quantity}
+`;
+        console.log(str);
+    </script>
+</html>
