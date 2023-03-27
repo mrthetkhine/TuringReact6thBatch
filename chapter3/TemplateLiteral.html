@@ -1,0 +1,17 @@
+<html>
+   
+    <script>
+        let price = 100;
+        let quantity = 2;
+        let str = 'Price '+price+" Qty "+ quantity+" Total "+ (price* quantity);
+        console.log('Str ',str);
+
+        str = `Price ${price} 
+        Qty ${quantity} 
+        total ${price*quantity}`;
+       
+        console.log('Str ',str);
+        console.log(String.raw`\n`);
+        console.log(`\n`);
+    </script>
+</html>

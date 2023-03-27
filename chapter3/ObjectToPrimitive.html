@@ -1,0 +1,25 @@
+<html>
+   
+    <script>
+        let obj = {
+            name :"Tk",
+            age : 38,
+
+            valueOf:function()
+            {
+                console.log('Value of called');
+                //return 10;
+                return {};
+            },
+            
+            toString:function()
+            {
+                console.log('ToStringCalled');
+                return '100';
+                //return {};
+            }
+        };
+        console.log('""+obj ', ""+obj);
+        console.log('+obj ', +obj);
+    </script>
+</html>

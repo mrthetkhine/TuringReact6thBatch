@@ -1,0 +1,32 @@
+<html>
+   
+    <script>
+        let obj = {
+            name : 'TK',
+            age : 38,
+        };
+        console.log('Obj ',obj);
+        console.log('Obj.name ',obj.name);
+
+        let a = 10;
+        let b = a;//copy value
+
+        a = 20;
+        console.log('A ',a);
+        console.log('B ',b);
+
+        let obj2 = obj;//mutable
+
+        obj2.name = "Change something";
+        console.log('Obj ',obj);
+        console.log('Obj2 ',obj2);
+
+        obj2 = {
+            name : "Two",
+            age : 30
+        };
+        obj2.name = "Change";
+        console.log('Obj ',obj);
+        console.log('Obj2 ',obj2);
+    </script>
+</html>
