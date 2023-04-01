@@ -1,0 +1,27 @@
+<html>
+   
+    <script>
+        function div(a,b)
+        {
+            if(b== 0)
+            {
+                return [undefined,new Error("Division by zero")];
+            }
+            else{
+                return [a/b,undefined];
+            }
+        }
+        let a = 10;
+        let b = 20;
+        let [c,d] = [100,200];
+    
+        let [result,err] = div(20,30);
+        if(err)
+        {
+            console.log('Error ',err);
+        }
+        else{
+            console.log('Result ',result);
+        }
+    </script>
+</html>
