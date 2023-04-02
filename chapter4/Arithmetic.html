@@ -1,0 +1,30 @@
+<html>
+   
+    <script>
+      
+        let result = 'false' * 3;
+        console.log('Result ',result);
+
+        result = '' * 3;
+        console.log('Result ',result);
+
+        result = '100' * 3;
+        console.log('Result ',result);
+
+        let obj3 = {
+            valueOf:function()
+            {
+                console.log('Value of');
+                return '5';
+            }
+        }
+        result = obj3 * 4;
+        console.log('Result ',result);
+
+        console.log('+ obj3 ', +obj3);
+
+        ++obj3;
+        console.log('Obj3 ',obj3);
+        console.log('Typeof obj3 ',typeof obj3);
+    </script> 
+</html>
