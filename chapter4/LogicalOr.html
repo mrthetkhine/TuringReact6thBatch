@@ -1,0 +1,29 @@
+<html>
+   
+    <script>
+      
+     
+     console.log('true || "true" ', true || 'true');
+     console.log('null || "true" ', null || 'true');
+     console.log('{} || false ', {} || false);
+
+     window.module = {
+        api :function()
+        {
+            console.log('API ');
+        }
+     };
+
+     window.module = window.module || {
+        api :function()
+        {
+            console.log('new API ');
+        }
+     }
+     module.api();
+
+     let conifg = {
+        color : 'blue'
+     }
+    </script> 
+</html>

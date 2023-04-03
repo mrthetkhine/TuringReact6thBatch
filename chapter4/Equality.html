@@ -1,0 +1,52 @@
+<html>
+   
+    <script>
+      
+       console.log('null == undefined', null == undefined);
+       console.log('undfeind == null', undefined == null);
+
+       console.log(" '3'==3 ", '3' == 3);
+       console.log(" 3=='3' ",3 == '3');
+
+       console.log(" true=='true' ", true =='true');
+       console.log(" true==1 ", true ==1);
+
+       let obj = {
+        valueOf:function()
+        {
+            return '4';
+        }
+       };
+       let obj2 = {
+        valueOf:function()
+        {
+            return 4;
+        }
+       }
+       let obj3 = {
+        valueOf:function()
+        {
+            return false;
+        }
+       }
+       let obj4 = {
+        valueOf:function()
+        {
+            return 'false';
+        }
+       }
+       let obj5 = {
+        valueOf:function()
+        {
+            return null;
+        }
+       }
+       console.log("4 == obj ", 4 ==obj);
+       console.log("false == obj3 ", false == obj3);
+       console.log("false == obj4 ", false == obj4);
+
+       console.log("null == obj5 ", null == obj5);
+       console.log("undfined == false ", undefined == false);
+       console.log("null == false ", null == false);
+    </script> 
+</html>

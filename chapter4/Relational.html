@@ -1,0 +1,35 @@
+<html>
+   
+    <script>
+      
+       console.log("3>2 ", 3 >2);
+       console.log("2>=2 ", 2 >=2);
+
+       console.log("3<2 ", 3 < 2);
+       console.log("2<=2 ", 2 <=2);
+       let obj = {
+        valueOf:function()
+        {
+            return '4';
+        }
+       };
+       let obj2 = {
+        valueOf:function()
+        {
+            return 4;
+        }
+       }
+       let obj3 = {
+        valueOf:function()
+        {
+            return false;
+        }
+       }
+      console.log('obj2 > 3', obj2 > 3);
+      console.log('"apple">"orange"', "apple" > "orange");
+      console.log('"apple"<"orange"', "apple" < "orange");
+
+      console.log('"true" > false', "true" > false);
+      console.log('"" >= false', "" >=false);
+    </script> 
+</html>
