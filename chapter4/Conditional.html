@@ -1,0 +1,25 @@
+<html>
+   
+    <script>
+      
+       let num = 3;
+       let evenOrOdd = num % 2 == 0 ? 'Even' : 'Odd';
+       console.log('Even or odd ',evenOrOdd);
+
+       let maxWidth = 0;
+       let preferences = {
+            maxWidth:1234
+       };
+       let max = maxWidth || preferences.maxWidth || 500;
+       console.log('Max ',max);
+
+       max = maxWidth ?? preferences.maxWidth ?? 500;
+       console.log('Max ',max);
+
+       let options = {
+        title: 'Title'
+       };
+       let data = options.data?? 'Data';
+       console.log('Data ',data);
+    </script> 
+</html>
