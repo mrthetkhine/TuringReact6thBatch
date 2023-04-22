@@ -1,0 +1,34 @@
+<html>
+   <body>
+
+   </body>
+    <script>
+
+      function div(a,b)
+      {
+        console.log('Div called ',a,' ', b );
+        if( isNaN(a) || isNaN(b))
+        {
+            throw new Error('some operand is NaN ');
+        }
+        return a/b;
+      }
+     
+      try
+      {
+        let data = div(NaN,10);
+        console.log('Data ',data);
+      }
+      catch(e)
+      {
+        console.log('We catch error ',e);
+      }
+      finally
+      {
+        console.log('Finally run');
+      }
+      console.log('End of program');
+    </script>
+    
+   
+</html>

@@ -1,0 +1,31 @@
+<html>
+   <body>
+
+   </body>
+    <script>
+
+       let obj = {
+        name : null,
+        age : 38
+       }
+
+       function checkNull(obj)
+       {
+            for(const prop of Object.keys(obj))
+            {
+                if(obj[prop] === null)
+                {
+                    console.log('Prop ', prop ,' is null ');
+                }
+            }
+       }
+       checkNull(obj);
+       let obj2 = {
+            school : null,
+            address : 'somewhere'
+       };
+       checkNull(obj2);
+    </script>
+    
+   
+</html>

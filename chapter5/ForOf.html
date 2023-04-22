@@ -1,0 +1,40 @@
+<html>
+   <body>
+
+   </body>
+    <script>
+
+       let arr = [1,2,3];
+
+       for(let i=0;i < arr.length;i++)
+       {
+        console.log('Arr ['+i+'] ',arr[i]);
+        arr[i] *= 2;
+       }
+       for(const data of arr)// data = arr[i]
+       {
+        console.log('Data ',data);
+        //data *= 3;
+       }
+       console.log('Arr ',arr);
+       let obj = {
+            name : "Tk",
+            age : 38
+       };
+       console.log('Keys ',Object.keys(obj));
+       for(const prop of Object.keys(obj))
+       {
+        console.log('Prop ',prop, ' Value ', obj[prop]);
+       }
+       console.log('Values ', Object.values(obj));
+
+       for(const [key,value] of Object.entries(obj))
+       {
+            console.log('Key ',key, " value ", value);
+            obj[key] = "Something";
+       }
+       console.log("Obj ",obj);
+    </script>
+    
+   
+</html>

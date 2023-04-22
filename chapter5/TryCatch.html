@@ -1,0 +1,34 @@
+<html>
+   <body>
+
+   </body>
+    <script>
+
+      function fun()
+      {
+        
+        try
+        {
+            throw new Error('Something got wrong');
+            //return 20;
+        }
+        catch(e)
+        {
+            console.log('We catch error ',e);
+            //return 3;
+            throw new Error('We got catch error');
+        }
+        finally
+        {
+            console.log('Finally run');
+            return 100;
+        }
+        return 10;
+      }
+      let k = fun();
+      console.log('K ',k);
+     
+    </script>
+    
+   
+</html>

@@ -1,0 +1,33 @@
+<html>
+   <body>
+
+   </body>
+    <script>
+
+        //0-1
+        let num = parseInt(Math.random() * 10 +1);
+        //console.log('Num ',num);
+       //5
+       //3
+        let userNum;
+        let attempt = 0;
+        do
+        {
+            userNum = parseInt(prompt("Enter your guess"+(attempt+1)));
+            if(userNum< num)
+            {
+                console.log('Too small');
+            }
+            else if(userNum > num)
+            {
+                console.log('Too large');
+            }
+            attempt++;
+        }while(userNum !== num);
+       
+        console.log('Correct at attempt ',attempt);
+        
+    </script>
+    
+   
+</html>
