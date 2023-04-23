@@ -1,0 +1,22 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+    let parent = {
+        data : 200,
+        method : function()
+        {
+            console.log('Method in parent');
+        }
+    }
+    let child = Object.create(parent);
+    child.method();
+   
+    console.log('CHild unknown ',child.unknown);
+    console.log('CHild unknown ',child.unknown?.something);
+    </script>
+    
+    
+   
+</html>

@@ -1,0 +1,33 @@
+<html>
+   <body>
+    <form >
+        <div>
+          <label>Name</label>
+          <input type="text" id="lblName" name="lblName"/>
+        </div>
+        <div>
+            <label>Email</label>
+            <input type="text" id="lblEmail" name="lblEmail"/>
+          </div>
+        <button type="button" id="btnClick">
+            Click
+        </button>
+    </form>
+   </body>
+    <script>
+
+        //debugger;
+        document.getElementById('btnClick').addEventListener('click',()=>{
+           
+            with(document.forms[0])
+            {
+                lblName.value ='DummyName';
+                lblEmail.value = 'DummyEmail';
+            }
+        });
+        
+     
+    </script>
+    
+   
+</html>

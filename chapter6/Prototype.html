@@ -1,0 +1,38 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+    let parent = {
+        x : 100,
+        items: []
+    }
+    let obj2 = Object.create(parent,{
+        y : {
+            value : 300,
+            configurable : false
+        }
+    });
+    let obj3 = Object.create(parent);
+    parent.x = 200;
+    console.log('Obj2 ',obj2);
+    console.log('Obj2.x ',obj2.x);
+
+    obj2.x = 300;
+    console.log('Parent.x ',parent.x);
+    console.log('Obj2 ',obj2);
+
+    parent.x = 200;
+    console.log('Obj2.x ',obj2.x);
+    obj2.items.push(1);
+    obj3.items.push(2)
+
+    console.log('obj2. Item ',obj2.items);
+
+    obj2.items = [];
+    console.log('obj3. Item ',obj3.items);
+    </script>
+    
+    
+   
+</html>
