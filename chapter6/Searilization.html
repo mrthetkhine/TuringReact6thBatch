@@ -1,0 +1,33 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+   
+
+    let a = {
+        x : 10,
+        items: [10,20],
+        method : function()
+        {
+            console.log('My items is ',this.items);
+        },
+        value : Infinity
+    };
+   
+    let c = Object.create(a);
+    c.y = 200;
+    console.log('C Serizliation ', JSON.stringify(c));
+    let jsonStr = JSON.stringify(a);
+    console.log('JSON Str ',jsonStr);
+    let clone = JSON.parse(jsonStr);
+    
+    console.log('a==clone ',a == clone);
+
+    clone = Object.assign({...a},clone);
+    console.log('Clone ',clone);
+    </script>
+    
+    
+   
+</html>

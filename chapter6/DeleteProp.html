@@ -1,0 +1,39 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+    let parent = {
+        data : 200,
+        method : function()
+        {
+            console.log('Method in parent');
+        }
+    }
+    delete parent.data;
+    console.log('Parent ',parent);
+
+    console.log('method in parent ', 'method' in parent);
+
+    let obj = Object.create(parent);
+    obj.x = 10;
+
+    console.log('method in obj ', 'method' in obj);
+    console.log('obj hasOwnProperty ', obj.hasOwnProperty('method'));
+    console.log('obj hasOwnProperty x', obj.hasOwnProperty('x'));
+
+    console.log('o.propertyIsEnumerable("toString") ', obj.propertyIsEnumerable("toString"));
+
+    for(let p in obj)
+    {
+        console.log('Property ',p);
+    }
+    console.log('Keys ',Object.keys(obj));
+    console.log('Object.getOwnPropertyNames ',Object.getOwnPropertyNames(obj));
+
+    console.log('Reflect.ownKeys ',Reflect.ownKeys(obj));
+    </script>
+    
+    
+   
+</html>

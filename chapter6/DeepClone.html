@@ -1,0 +1,30 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+   
+
+    let a = {
+        x : 10,
+        items: [10,20]
+    };
+    let b = {
+        z : 30,
+        y : 100
+    }
+    let jsonStr = JSON.stringify(a);
+    console.log('JSON Str ',jsonStr);
+    let clone = JSON.parse(jsonStr);
+    
+    let c = Object.assign(clone,b,{str:'Hello'});
+    c.items.push(30);
+
+    console.log('A ',a);
+    console.log('C ',c);
+    
+    </script>
+    
+    
+   
+</html>

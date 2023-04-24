@@ -1,0 +1,45 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+   
+
+    let obj = {
+        __age : 20,
+        get age()
+        {
+            console.log('Getter ');
+            return this.__age;
+        },
+        set age(newValue)
+        {
+            console.log('Setter value ',newValue);
+            if(newValue> 0&& newValue <=120)
+            {
+                this.__age = newValue;
+            }
+        }
+    }
+    obj.__age = 30;
+    console.log('Obj.age ',obj.age);
+    obj.age = -100;
+    console.log('Obj.age ',obj.age);
+   
+    obj.age = 30;
+    console.log('Obj.age ',obj.age);
+
+    let circle = {
+        radius: 10,
+        get area()
+        {
+            return  Math.PI * this.radius * this.radius;
+        }
+    };
+    console.log('Circle ',circle.area);
+    </script>
+
+    
+    
+   
+</html>

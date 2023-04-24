@@ -1,0 +1,35 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+   
+
+    let circle = {
+        x : 10,
+        y : 200,
+        privateData : 'Something',
+        toJSON : function()
+        {
+            console.log('toJSON called');
+            let that = this;
+            return {
+                xPos: that.x,
+                yPos : that.y
+            }
+        }
+    };
+   
+    let str = JSON.stringify(circle);
+    console.log('Str ',str);
+
+    let obj = JSON.parse( str, (key, value)=>{
+        console.log('Key ',key, ' value ',value);
+        return value;
+    });
+    console.log('Obj ',obj);
+    </script>
+    
+    
+   
+</html>

@@ -1,0 +1,46 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+    let source = {
+        x : 100,
+        z : 20
+    };
+    let target = {
+        y : 200,
+        x : 40
+    }
+    for(let key of Object.keys(source)) 
+    {
+        target[key] = source[key];
+    }
+    console.log('Target ',target);
+
+    let a = {
+        x : 10,
+        y : 20
+    };
+    let b = {
+        z : 30,
+        y : 100
+    }
+    let c = Object.assign({...a},b,{str:'Hello'});
+    console.log('A ',a);
+    console.log('b ',b);
+    console.log('C ',c);
+
+    let config = {
+        color : 'blue',
+    };
+    let defaultConfig = {
+        color : 'gray',
+        background:'white'
+    }
+    Object.assign(defaultConfig,config);
+    console.log('DefaultConfig ',defaultConfig);
+    </script>
+    
+    
+   
+</html>

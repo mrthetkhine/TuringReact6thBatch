@@ -1,0 +1,32 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+   
+
+    let obj = {
+        x : 10,
+        y: 20
+    };
+    let x  = 100;
+    let y = 200;
+    let obj2 = {
+        x ,
+        y
+    }
+    console.log('Obj2 ',obj2);
+
+    let propPrefix = "internal";
+
+    let obj3 = {
+        [propPrefix+x] :x
+    };
+    console.log("Obj3 ",obj3);
+
+    </script>
+
+    
+    
+   
+</html>
