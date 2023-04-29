@@ -1,0 +1,26 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+   
+        const months = ['Jan', 'March', 'April', 'June'];
+        months.splice(1, 0, 'Feb','Feb2');
+        console.log('splice 1,0,Feb',months);
+
+        months.splice(1, 2, 'Feburary');
+        console.log('splice 1,2,Feburary',months);
+
+        months.splice(1, 1);
+        console.log('splice 1,1',months);
+
+        let aprilIndex = months.indexOf('April');
+        months.splice(aprilIndex,1);
+
+        console.log('splice apirlIndex,1',months);
+    </script>
+
+    
+    
+   
+</html>

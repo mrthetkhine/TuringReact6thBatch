@@ -1,0 +1,33 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+   
+        let arr = [
+            [1,2,3,10,20],
+            [4,5,6],
+            [
+                [7,8,9]
+            ]
+        ];
+        console.log('Arr ',arr);
+        console.log('Arr ',arr[0]);
+        console.log('Arr [0][1]',arr[0][1]);
+        console.log('Arr [1][2]',arr[1][2]);
+        console.log('Arr [2][0][2]',arr[2][0][2]);
+
+        for(let i=0; i < arr.length;i++)
+        {
+            console.log('Arr ['+i+'] '+ arr[i]);
+            for(let j=0; j< arr[i].length;j++)
+            {
+                console.log('Arr['+i+', '+j+'] ',arr[i][j]);
+            }
+        }
+    </script>
+
+    
+    
+   
+</html>

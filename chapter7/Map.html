@@ -1,0 +1,49 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+   
+        let arr = [
+            {
+                name : 'Tk',
+                age : 38,
+                gender: 'male',
+            },
+            {
+                name : 'Hla Hla',
+                age : 22,
+                gender: 'female',
+            },
+            {
+                name : 'Aung Aung',
+                age : 29,
+                gender: 'male',
+            },
+            {
+                name : 'Mya Mya',
+                age : 18,
+                gender: 'female',
+            },
+            {
+                name : 'Aung Min',
+                age : 23,
+                gender: 'male',
+            },
+        ];
+        /*
+        let names = [];
+        for(let i=0;i< arr.length;i++)
+        {
+            names.push(arr[i].name);
+        }
+        console.log('Names ',names);
+        */
+       let names = arr.map(obj=>obj.name);
+       console.log('Names ',names);
+    </script>
+
+    
+    
+   
+</html>

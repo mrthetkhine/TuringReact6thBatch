@@ -1,0 +1,68 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+   
+        let arr = [
+            {
+                name : 'Tk',
+                age : 38,
+                gender: 'male',
+            },
+            {
+                name : 'Hla Hla',
+                age : 22,
+                gender: 'female',
+            },
+            {
+                name : 'Aung Aung',
+                age : 29,
+                gender: 'male',
+            },
+            {
+                name : 'Mya Mya',
+                age : 18,
+                gender: 'female',
+            },
+            {
+                name : 'Aung Min',
+                age : 23,
+                gender: 'male',
+            },
+        ];
+        
+        /*
+        let males = [];
+        for(let i=0;i< arr.length;i++)
+        {
+            if(arr[i].gender == 'male')
+            {
+                males.push(arr[i]);
+            }
+            
+        }
+        console.log('Males ',males);
+        */
+       function isMale(obj)
+       {
+        return obj.gender=='male';
+       }
+       function isAdult(obj)
+       {
+        return obj.age > 25;
+       }
+       function getName(obj)
+       {
+        return 'U '+obj.name;
+       }
+       let males = arr.filter(isMale)
+                      .filter(isAdult)  
+                      .map(getName);
+       console.log('Males ',males);
+    </script>
+
+    
+    
+   
+</html>

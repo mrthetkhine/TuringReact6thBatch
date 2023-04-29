@@ -1,0 +1,78 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+   
+        let numbers = [1,2,3,5,20,-10,5];
+        function add(a,b)
+        {
+            console.log('A ',a, " b ",b);
+            return a + b;
+        }
+        let total = numbers.reduce(add);
+
+        function min(a,b)
+        {
+            return a < b ? a : b;
+        }
+        let smallest = numbers.reduce(min);
+        console.log('Min ',smallest);
+        console.log('Total ',total);
+        let arr = [
+            {
+                name : 'Tk',
+                age : 38,
+                gender: 'male',
+            },
+            {
+                name : 'Hla Hla',
+                age : 22,
+                gender: 'female',
+            },
+            {
+                name : 'Aung Aung',
+                age : 29,
+                gender: 'male',
+            },
+            {
+                name : 'Mya Mya',
+                age : 18,
+                gender: 'female',
+            },
+            {
+                name : 'Aung Min',
+                age : 3,
+                gender: 'male',
+            },
+        ];
+        let group = {};
+        /*
+        group ['male'] = [male1,male2];
+        */
+       /*
+       for(let i=0; i< arr.length;i++)
+       {
+        let obj = arr[i]
+        if(group[obj.gender])
+        {
+            group[obj.gender].push(obj);
+        }
+        else
+        {
+            group[obj.gender]= [obj];
+        }
+       }*/ 
+       function groupBy(group,obj)
+       {
+        return group[obj.gender] ? ( group[obj.gender].push(obj),group)
+                                 : ( group[obj.gender] =[obj],group);
+       }
+       group = arr.reduce(groupBy,{});
+       console.log('Group ',group);
+    </script>
+
+    
+    
+   
+</html>

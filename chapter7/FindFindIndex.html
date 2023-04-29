@@ -1,0 +1,61 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+   
+        let arr = [
+            {
+                name : 'Tk',
+                age : 38,
+                gender: 'male',
+            },
+            {
+                name : 'Hla Hla',
+                age : 22,
+                gender: 'female',
+            },
+            {
+                name : 'Aung Aung',
+                age : 29,
+                gender: 'male',
+            },
+            {
+                name : 'Mya Mya',
+                age : 18,
+                gender: 'female',
+            },
+            {
+                name : 'Aung Min',
+                age : 3,
+                gender: 'male',
+            },
+        ];
+        
+   
+       function isFemale(obj)
+       {
+        return obj.gender=='female';
+       }
+       
+       let firstFemale = arr.find(isFemale)
+       console.log('firstFemale ',firstFemale);
+
+       let index = arr.findIndex(isFemale);
+       console.log('Index ',index)
+
+       function isAgeGt10(obj)
+       {
+        return obj.age > 10;
+       }
+       let allAreOver10 = arr.every(isAgeGt10);
+       console.log('AllOver 10 ',allAreOver10);
+
+       let someAreOver10 = arr.some(isAgeGt10);
+       console.log('Some ',someAreOver10);
+    </script>
+
+    
+    
+   
+</html>
