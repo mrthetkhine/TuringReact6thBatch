@@ -1,0 +1,33 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+        //max(1,2)
+        //max(33,3,1)
+        function max(a,...args)
+        {
+            console.log('Args ',args);
+            console.log('Arguments ',arguments);
+        }
+        max(1,2);
+
+        let arr = [30,20];
+        max(10,...arr);
+
+        function display({name,age})
+        {
+            console.log('Name ',name, ' Age ',age);
+        }
+        let obj = {
+            name : "Tk",
+            age : 38
+        };
+        display(obj);
+        
+    </script>
+
+    
+    
+   
+</html>

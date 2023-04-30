@@ -1,0 +1,38 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+       
+        //can assign to variable
+        function hello()
+        {
+            console.log('Hello executed');
+        }
+        const fun = hello;
+        fun();
+
+        //can pass as parameter
+        function higherOrder(fun)
+        {
+            fun();
+        }
+        higherOrder(hello);
+
+        //can return from function
+
+        function getFun()
+        {
+            return function()
+            {
+                console.log('Returned function executed');
+            }
+        }
+        getFun()();
+        
+    </script>
+
+    
+    
+   
+</html>

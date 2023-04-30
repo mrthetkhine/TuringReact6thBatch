@@ -1,0 +1,65 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+   
+        let arr = [1,2,100,11,3];
+        arr.sort();
+
+        console.log('Arr ',arr);
+       
+        /*
+            == 0
+            > 1
+            < -1
+        */
+       function comparator(a,b)
+       {
+        //return a-b;
+        return b-a;
+       }
+       arr.sort(comparator);
+       console.log('Arr ',arr);
+
+       let objArr = [
+        {
+            name : 'Tk',
+            age : 38,
+        },
+        {
+            name: 'Aung Aung',
+            age : 20,
+        },
+        {
+            name : 'Mya Mya',
+            age : 45
+        },
+        {
+            name : 'Win Naing',
+            age : 20
+        }
+       ];
+       objArr.sort((a,b)=> a.age - b.age);
+       console.log('ObjArr ',objArr);
+
+       objArr.sort((a,b)=>{
+        if(a.age == b.age)
+        {
+            return a.name.localeCompare(b.name);
+        }
+        else
+        {
+            return a.age - b.age;
+        }
+       });
+       console.log('ObjArr ',objArr);
+
+       objArr.reverse();
+       console.log('ObjArr ',objArr);
+    </script>
+
+    
+    
+   
+</html>

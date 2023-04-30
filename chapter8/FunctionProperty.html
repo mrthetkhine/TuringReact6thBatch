@@ -1,0 +1,39 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+       
+        function getUnique()
+        {
+            return getUnique.id ++;
+        }
+        getUnique.id = 1;
+        console.log('GetUnique ', getUnique());
+        console.log('GetUnique ', getUnique());
+        console.log('GetUnique ', getUnique());
+
+        //3! = 3 * 2 * 1
+        function fact(n)
+        {
+            if(fact[n])
+            {
+                return fact[n];
+            }
+            console.log('Fact compute ',n);
+            let result = 1;
+            for(let i=3; i>=1 ; i--)
+            {
+                result *= i;
+            }
+            fact[n] = result;
+            return result;
+        }
+        console.log('Fact ', fact(3));
+        console.log('Fact ', fact(3));
+    </script>
+
+    
+    
+   
+</html>

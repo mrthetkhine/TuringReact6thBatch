@@ -1,0 +1,48 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+        function display(obj)
+        {
+            console.log('Name ',obj.name, ' Age ',obj.age);
+        }
+        let obj2 = {
+            name : 'Tk',
+            age : 38
+        }
+        display(obj2);
+
+        function inc(x)
+        {
+            console.log('X ',x);
+            x++;
+        }
+        let k = 10;
+        inc(k);// x = k ; 
+        console.log('K ',k);
+
+        function change(obj)
+        {
+            obj.x ++;
+        }
+        let obj3 = {
+            x : 10
+        };
+        change(obj3);//obj = obj3
+        console.log('Obj3 ',obj3);
+
+        function change2(obj)
+        {
+            obj  = {
+                x: 300
+            };
+        }
+        change2(obj3);
+        console.log('Obj3 ',obj3);
+    </script>
+
+    
+    
+   
+</html>

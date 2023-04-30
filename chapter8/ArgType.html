@@ -1,0 +1,26 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+       
+        function display(msg,another)
+        {
+            console.log('Length ',display.length);
+            console.log('Argument length ',arguments.length);
+            if(display.length > arguments.length)
+            {
+                console.warn('Only ',arguments.length ,' supplied but required ',display.length, ' Arguments');
+            }
+            console.log('Msg ',msg);
+            console.log('Another ',another);
+        }
+        display();
+        display('Hi');
+        
+    </script>
+
+    
+    
+   
+</html>

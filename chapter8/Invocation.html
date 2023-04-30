@@ -1,0 +1,46 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+        function outer()
+        {
+            console.log('Outer called');
+        }
+        outer();
+        let obj = {
+            x  : 10,
+            y  : 20,
+            display()
+            {
+                console.log('X ',this.x, ' Y ',this.y);
+            },
+            toString()
+            {
+                return 10;
+            },
+            get something()
+            {
+                console.log('get something called');
+                return 10;
+            }
+
+        };
+        obj.display();
+
+        function Human(name,age)
+        {
+            this.name = name;
+            this.age = age;
+            console.log('Constructor run ');
+        }
+        let obj2 = new Human('Tk',38);
+        console.log('Obj2 ',obj2);
+        console.log('Obj2 + 3 ', 3 + obj);
+        obj.something;
+    </script>
+
+    
+    
+   
+</html>
