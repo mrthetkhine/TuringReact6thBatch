@@ -1,0 +1,35 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+   
+        let obj = {
+            name : 'Tk',
+            age : 39,
+            display: ()=>{
+                console.log('No ',this.name, 'Age ',this.age);
+            }
+        }
+        obj.display();
+        function add(x,y)
+        {
+            console.log('Arguments ',arguments);
+            return x+y;
+        }
+        const add2 = (x,y)=> x + y;
+
+        console.log('Add2 ',add2(10,2));
+
+        const double = (x)=>{
+            console.log('Double x ',x ,' arguments ');
+            return x*2;
+        };
+        let result = double(10);
+        console.log('Result ',result);
+    </script>
+
+    
+    
+   
+</html>

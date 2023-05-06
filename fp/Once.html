@@ -1,0 +1,52 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+   
+        let paymentDone = false;
+        function payment()
+        {
+            if(!paymentDone)
+            {
+                console.log('Payment called');
+                paymentDone = true;
+            }
+            
+        }
+        function order()
+        {
+            console.log('Order called');
+        }
+        function execute()
+        {
+            console.log('Executed');
+        }
+        payment();
+        payment();
+
+        function once(fn)
+        {
+            let done = false;
+            return function()
+            {
+                if(!done)
+                {
+                    done = true;
+                    fn();
+                }
+            };
+        }
+        order = once(order);
+        order();
+        order();
+
+        execute = once(execute);
+        execute();
+        execute();
+    </script>
+
+    
+    
+   
+</html>

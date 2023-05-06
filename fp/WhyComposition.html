@@ -1,0 +1,33 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+       const toUpper = (msg)=> msg.toUpperCase();
+       const appendHi = (msg)=> 'Hi '+ msg;
+
+       function appendHiAndToUpper(msg)
+       {
+            let result = appendHi(msg);
+            return toUpper(result);
+       }
+       console.log('AppendHi ',appendHiAndToUpper('hello'));
+
+       function compose(funA,funB){
+        return function(msg)
+        {
+            return funA(funB(msg));
+        }
+       }
+       console.log('appendHiToUpper ', toUpper(appendHi('hello')));
+
+       let newFun = compose(toUpper,appendHi);
+       console.log('NewFun ',newFun('morning'));
+
+       const addOne = (x)=> x + 1;
+       const double = (x)=> x * 2;
+       newFun = compose(appendHi,addOne);
+       console.log('NewFunc ',newFun(3));
+    </script>
+   
+</html>

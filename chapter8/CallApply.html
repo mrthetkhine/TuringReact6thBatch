@@ -1,0 +1,35 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+        let obj = {
+            name : 'TK',
+            age : 38,
+            display(msg)
+            {
+                console.log('Name ',this.name, ' Age ',this.age, ' Msg ',msg);
+            }
+        };
+        obj.display();
+        let fun = obj.display;
+        fun();
+
+        fun.call(obj,'Hello');
+
+        let obj2 = {
+            name : 'Someone',
+            age : 100,
+        };
+        fun.call(obj2,'Hi');
+
+        fun.apply(obj,['Hello']);
+
+        let fun3 = fun.bind(obj2);
+        fun3('Hello');
+    </script>
+
+    
+    
+   
+</html>

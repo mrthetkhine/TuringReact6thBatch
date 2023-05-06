@@ -1,0 +1,39 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+        function forEach(arr,fn)
+        {
+            for(let i=0; i < arr.length;i++)
+            {
+                fn(arr[i]);
+            }
+        }
+        //!condition 
+        const unless = (cond,fn)=> {
+            if(!cond)fn()
+        };
+        let x = 10;
+        unless( x >10,()=> console.log('X is less or equal  10'));
+        unless( x==10,()=> console.log('X is not equal to  10'));
+
+        forEach([1,2,3,4,5,6,7],(number) => {
+                unless((number % 2), () => {
+                        console.log(number, " is even")
+                }) 
+        })
+
+        const times = (noOfLoop,fn)=>{
+            for(let i=0;i<noOfLoop;i++)
+            {
+                fn(i);
+            }
+        }
+        times(3,console.log);
+    </script>
+
+    
+    
+   
+</html>

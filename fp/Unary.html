@@ -1,0 +1,27 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+        let arr = ["1","2","3","4"];
+
+        const unary = (fn)=> fn.length === 1
+                            ? fn
+                            : (arg) => fn(arg)
+        let numbers = arr.map(unary(parseInt));//(value,index,arr)
+        console.log('Number ',numbers);
+
+        /*
+        //1 -> parseInt(num,base)
+        arr.map(function (a,b,c)
+        {
+            console.log('A ',a, " b ",b , " c ",c);
+        })
+        console.log('ParseInt ',parseInt("11",2));
+        */
+    </script>
+
+    
+    
+   
+</html>

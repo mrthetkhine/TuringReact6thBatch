@@ -1,0 +1,28 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+        //3! = 3 * 2 * 1;
+        function factorial(n)
+        {
+            console.log('Compute factorial ',n);
+            let result = 1;
+            for(let i=1;i<=n;i++)
+            {
+                result *= i;
+            }
+            return result;
+        }
+        //console.log('Fact 4 ',factorial(4));
+
+        const memonize = (fn)=>{
+            const lookupTable = {};
+            return (arg) => lookupTable[arg] || (lookupTable[arg] = fn(arg));
+        }
+        const newFact = memonize(factorial);
+        console.log('NewFact ',newFact(4));
+        console.log('NewFact ',newFact(4));
+    </script>
+   
+</html>

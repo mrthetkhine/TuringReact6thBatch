@@ -1,0 +1,42 @@
+<html>
+   <body>
+   
+   </body>
+   
+    <script>
+       let obj = {
+        name : 'Tk',
+        age : 38
+       };
+       obj.name = 100;
+       console.log('Obj ',obj);
+
+       function stack()
+       {
+        let items=[];
+        function push(element)
+        {
+            items.push(element);
+        }
+        function pop()
+        {
+            return items.pop();
+        }
+        return {
+            push,
+            pop,
+        }
+       }
+       let s1 = stack();
+       s1.push(100);
+       s1.push(200);
+
+       console.log('S1 ',s1);
+       s1.items = [];
+       console.log('S1 ',s1.pop());
+    </script>
+
+    
+    
+   
+</html>

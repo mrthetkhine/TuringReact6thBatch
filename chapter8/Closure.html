@@ -1,0 +1,45 @@
+<html>
+   <body>
+   
+   </body>
+   
+    <script>
+       //closure 
+   /*
+   closover
+   */
+        function outer()
+        {
+            let x = 10;
+            function inner()
+            {
+                console.log('Innner ',x);
+            }
+            console.log('Outer ');
+            inner();
+        }
+        outer();
+
+        function getUnique()
+        {
+            let x = 1;
+            return function()
+            {
+                return x++;
+            }
+        }
+        let unique = getUnique();
+        console.log('Unique ',unique());
+        console.log('Unique ',unique());
+        console.log('Unique ',unique());
+
+        let unique2 = getUnique();
+        console.log('Unique ',unique2());
+        console.log('Unique ',unique2());
+        console.log('Unique ',unique2());
+    </script>
+
+    
+    
+   
+</html>
