@@ -1,0 +1,43 @@
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@0.27.1/dist/ramda.min.js"></script>
+    <script>
+       let arr = [1,2,3,1,1,1,2,3,3,5,5,5];
+       let k = 2;
+       /*
+       let frequencyCount = R.countBy(R.identity)(arr);
+       console.log('Frequency count ',frequencyCount);
+       let countArr = Object.entries(frequencyCount);
+
+       console.log('CountArr ',countArr);
+
+       const sortyByFrequency = (a,b)=> b[1]-a[1];
+       const sortedCount = R.sort(sortyByFrequency)(countArr);
+       console.log('Sorted count ',sortedCount);
+
+       const sortedElement = R.map( (arr)=>arr[0])(sortedCount);
+       console.log('SorteElement ',sortedElement);
+
+       const answer = R.take(k)(sortedElement);
+
+       console.log('Answer ',answer);
+       */ 
+       const log = R.tap(console.log); 
+
+       const sortyByFrequency = (a,b)=> b[1]-a[1];
+
+       let topKElement = R.pipe(
+                                R.countBy(R.identity),
+                                log,
+                                Object.entries,
+                                log,
+                                R.sort(sortyByFrequency),
+                                log,
+                                R.map( (arr)=>arr[0]),
+                                log,
+                                R.take(k),
+                                log
+
+       );
+       console.log('TopK ',topKElement(arr));
+    </script>
+</html>

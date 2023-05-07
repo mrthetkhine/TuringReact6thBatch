@@ -1,0 +1,40 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+       const toUpper = (msg)=> msg.toUpperCase();
+       const appendHi = (msg)=> 'Hi '+ msg;
+
+       const addOne = (x)=> x + 1;
+       const double = (x)=> x * 2;
+       const addFive = (x) => x +5;
+       /*
+       right-> left
+       */
+      
+       function pipeN(...fns)
+       {
+        return function(x)
+        {
+            return fns.reduce(function(input,fun)
+            {
+                return fun(input);
+            },x );
+        }
+       }
+     
+       let result = pipeN(
+                        addOne,
+                        double,
+                        addFive)(2);
+       console.log('Result ',result);
+
+       let formula = pipeN( addOne, pipeN(double,addFive));
+       console.log('Result ',formula(2));
+
+       formula = pipeN( pipeN(addOne, double),addFive);
+       console.log('Result ',formula(2));
+    </script>
+   
+</html>

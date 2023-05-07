@@ -1,0 +1,47 @@
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@0.27.1/dist/ramda.min.js"></script>
+    <script>
+      function sum(a,b)
+      {
+        return a+b;
+      }
+      let curried = R.curry(sum);
+       console.log('Curried ',curried(2)(3)); 
+       const toUpper = (msg)=> msg.toUpperCase();
+       const appendHi = (msg)=> 'Hi '+ msg;
+
+       const addOne = (x)=> x + 1;
+       const double = (x)=> x * 2;
+       const addFive = (x) => x +5;
+
+       let formula = R.compose(
+        addOne,
+        double,
+        addFive,
+       );
+       console.log('Formula ',formula(3));
+       console.log('R.add ', R.add(2)(3));
+
+       let students =[ {
+                    name: 'Eddy', 
+                    score: 58,
+                    gender:'Female',
+                    city:'Mandalay',
+                },
+                {
+                    name: 'Another', 
+                    score: 81,
+                    gender:'Male',
+                    city:'Yangon',
+                },
+                {
+                    name: 'Jack', 
+                    score: 69,
+                    gender:'Female',
+                    city:'Tokyo',
+                }
+            ];
+        console.log('Names ',R.pluck('name')(students));
+        console.log('Names ',R.map(R.prop('name'))(students));
+    </script>
+</html>

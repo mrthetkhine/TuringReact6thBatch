@@ -1,0 +1,48 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+       const toUpper = (msg)=> msg.toUpperCase();
+       const appendHi = (msg)=> 'Hi '+ msg;
+
+
+       function compose(funA,funB){
+        return function(msg)
+        {
+            return funA(funB(msg));
+        }
+       }
+       console.log('appendHiToUpper ', toUpper(appendHi('hello')));
+
+       let newFun = compose(toUpper,appendHi);
+       console.log('NewFun ',newFun('morning'));
+
+       const addOne = (x)=> x + 1;
+       const double = (x)=> x * 2;
+       const addFive = (x) => x +5;
+       /*
+       right-> left
+       */
+      
+       function composeN(...fns)
+       {
+        return function(x)
+        {
+            return fns.reduceRight(function(input,fun)
+            {
+                return fun(input);
+            },x );
+        }
+       }
+       /*
+       const composeN = (...fns)=>
+                                x=> fns.reduceRight( 
+                                            (input,fn)=> fn(input),
+                                            x);
+        */
+       let result = composeN(addOne,double,addFive)(2);
+       console.log('Result ',result);
+    </script>
+   
+</html>

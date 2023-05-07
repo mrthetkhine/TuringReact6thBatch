@@ -1,0 +1,66 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+       const identity = (x)=> x;
+       console.log('Identity ',identity(3));
+
+       const K = a => b => a;
+       console.log('K ',K(3)(2));
+       const addOne = (x)=> x + 1;
+       const double = (x)=> x * 2;
+       const addFive = (x) => x +5;
+       //const sum = (x)=>(y)=> x +y;
+       function sum(x)//Currying
+       {
+        return function(y)
+        {
+            return x+y;
+        }
+       }
+       /*
+       right-> left
+       */
+       console.log("Sum ",sum(2)(3));
+      
+       function pipeN(...fns)
+       {
+        return function(x)
+        {
+            return fns.reduce(function(input,fun)
+            {
+                return fun(input);
+            },x );
+        }
+       }
+       const tap = (fn)=>val=> (fn(val),val);
+       const log = tap(console.log);
+       let result = pipeN(
+                        log,
+                        sum(3),
+                        log,
+                        double,
+                        log,
+                        )(2);
+       console.log('Result ',result);
+       let curry =(fn) => {
+            if(typeof fn!=='function'){
+                throw Error('No function provided');
+            }
+            return function curriedFn(...args){
+                if(args.length < fn.length){
+                    return function(){
+                        return curriedFn.apply(null, args.concat( [].slice.
+                        call(arguments) ));
+                    };
+                }
+                return fn.apply(null, args);
+            }; 
+        };
+        const multiply = (x,y,z) => x * y * z;
+        const curriedMultiply = curry(multiply);
+        console.log('Multiply ',curriedMultiply(2,3)(4));
+    </script>
+   
+</html>
