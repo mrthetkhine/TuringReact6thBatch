@@ -1,0 +1,36 @@
+<html>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.0/ramda.min.js"></script>
+    <script>
+        let arr = [1,2,3,4,5];
+        let result = R.sum(arr);//sum / length
+        console.log('Sum ',result);
+        //console.log('R.divide ',R.divide);
+       
+        /*
+         5/2 , divide(5,2), divide(5)(2)
+
+         divide(2)(5)
+        */
+       let formula = R.pipe(
+            R.flip(R.divide)(2)
+       );
+       console.log('5/2 ',formula(5));
+       const nums = [1, 2, 3, -99, 42, 6, 7];
+       console.log("Apply ", R.apply(Math.max, nums));
+
+       let obj = {
+        name : 'Tk',
+        age : 38,
+        address : {
+            city : 'Ygn',
+            township: 'Somewhere'
+        }
+       };
+       const getAge = R.prop('age');
+       console.log('getAge ',R.compose(R.inc,getAge)(obj));
+       //console.log('Path ', obj.address2.city);
+       console.log('Path ', R.path(['address2','city'])(obj));
+       console.log('PathOr ', R.pathOr('Unknown Adress',['address2','city'])(obj));
+    </script>
+</html>

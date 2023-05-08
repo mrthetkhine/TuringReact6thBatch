@@ -1,0 +1,63 @@
+<html>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.0/ramda.min.js"></script>
+    <script>
+        /*
+        const byGrade = R.groupBy(function(student) {
+        const score = student.score;
+        return score < 65 ? 'F' :
+                score < 70 ? 'D' :
+                score < 80 ? 'C' :
+                score < 90 ? 'B' : 'A';
+        });
+        const students = [{name: 'Abby', score: 84},
+                        {name: 'Eddy', score: 58},
+                        // ...
+                        {name: 'Jack', score: 69}];
+        byGrade(students);
+        */ 
+       let arr = [
+        {
+            name : 'TK',
+            gender :'male'
+        },
+        {
+            name : 'Hla Hla',
+            gender :'female'
+        },
+        {
+            name : 'Aung Aung',
+            gender :'male'
+        },
+        {
+            name : 'Mya Mya',
+            gender :'female'
+        },
+       ];
+       const byGender = R.groupBy( student=>student.gender);
+       console.log('group ByGender ',byGender(arr));
+
+     
+       console.log('Group With ', R.groupWith(R.equals, [0, 1, 1, 2, 3, 5, 8, 13, 21]));
+       console.log('R.pair ',R.pair('first','second')); 
+       console.log('R.head ',R.head(R.pair('first','second'))); 
+       console.log('R.tail ',R.tail(R.pair('first','second'))); 
+
+       const incCount = R.ifElse(
+            R.has('count'),
+            R.over(R.lensProp('count'), R.inc),
+            R.assoc('count', 1)
+        );
+        console.log('If ',incCount({ count: 1 })); //=> { count: 2 }
+        console.log('Else' ,incCount({}));      
+
+        const printEvenOrOdd = R.ifElse(
+            (x)=> x %2 == 0,
+            ()=>console.log('Even'),
+            ()=>console.log('Odd')
+        );
+        printEvenOrOdd(4);
+        printEvenOrOdd(5);
+        console.log('Pluck ',R.pluck('name')(arr));
+    </script>
+</html>

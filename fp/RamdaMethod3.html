@@ -1,0 +1,30 @@
+<html>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.0/ramda.min.js"></script>
+    <script>
+        const even = x => x % 2 == 0;
+        let result = R.count(even, [1, 2, 3, 4, 5]); 
+        console.log('Count ',result);
+
+        const byAge = R.comparator((a, b) => a.age < b.age);
+        const people = [
+        { name: 'Emma', age: 70 },
+        { name: 'Peter', age: 78 },
+        { name: 'Mikhail', age: 62 },
+        ];
+        const peopleByIncreasingAge = R.sort(byAge, people);
+        console.log('Sorted ',peopleByIncreasingAge);
+
+        console.log('Always ',R.always('Hello')('something'));
+        console.log('Equals ',R.equals(10)(10));
+        
+        const fn = R.cond([
+            [R.equals(0),   R.always('water freezes at 0°C')],
+            [R.equals(100), R.always('water boils at 100°C')],
+            [R.T,           temp => 'nothing special happens at ' + temp + '°C']
+        ]);
+        console.log(fn(0)); //=> 'water freezes at 0°C'
+        console.log(fn(100));
+        console.log(fn(102));
+    </script>
+</html>

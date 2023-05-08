@@ -1,0 +1,22 @@
+<html>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.0/ramda.min.js"></script>
+    <script>
+        const C = f => a => b => f(b)(a);
+        const
+        // Booleans
+        TRUE  = a=>b => a,
+        FALSE = a=>b => b,
+        
+        // Logical operators
+        NOT = C;
+        Function.prototype.toJsBool = function()  { 
+            //console.log('This ',this);
+            return this(true)(false); 
+        };
+        //console.log('True ', TRUE.toJsBool());
+        //console.log('False ', FALSE.toJsBool());
+        console.log('NOT(False) ', (NOT(FALSE)).toJsBool());
+        console.log('NOT(TRUE) ', (NOT(TRUE)).toJsBool());
+    </script>
+</html>
