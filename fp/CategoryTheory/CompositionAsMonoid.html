@@ -1,0 +1,34 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.28.0/ramda.js"></script>
+    <script>
+        const identity = (x)=>x;
+        const compose = (funA,funB)=>x=>funA(funB(x));
+        const incOne = (x)=> x+1;
+        const double = (x)=> x*2;
+        const addTwo = (x) => x + 2;
+        let newFun = compose(incOne,addTwo);
+        console.log('NewFun ',newFun(3));
+        
+        var Composition = { empty:()=> identity, concat: compose }
+       
+        var fold = function (array,monoid) { 
+            var accumulation = monoid.empty();  
+            //console.log('Accumula ',accumulation);                    // abstracted 0
+            for (let i = 0; i < array.length; i++) {
+                const element = array[i];
+                //console.log('Element ',element);
+                accumulation = monoid.concat(accumulation, element) // abstracted +
+                //console.log('Accumulation ', accumulation);
+            }
+            return accumulation;
+        }
+        
+       
+
+        let func = fold([incOne,double,addTwo],Composition);
+        console.log('Func ',func);
+        console.log("func ",func(3));
+
+      
+    </script>
+</html>

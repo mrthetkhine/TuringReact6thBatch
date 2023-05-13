@@ -1,0 +1,71 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.28.0/ramda.js"></script>
+    <script>
+ 
+        const pipe = (funA,funB)=> x=> funB(funA(x));
+        
+        const MayBe = (value)=>({
+            value,
+            isNothing()
+            {
+                return value === undefined || value === null;
+            },
+            map(fn)
+            {
+                return this.isNothing()? 
+                        MayBe(null)
+                        :MayBe( fn(value));
+            }
+        });
+        MayBe.of = MayBe;
+                    
+        let employees = {
+            data :{
+                1: {
+                    name : 'Mg Aung',
+                    age : 23
+                },
+                2:{
+                    name : 'Aung Min',
+                    age : 39
+                },
+                3: {
+                    name : "Mya Mya",
+                    age : 30,
+                    supervisor:2
+                },
+                4:{
+                    name : "Hla Hla",
+                    age : 30,
+                    supervisor:1
+                }
+            }
+        };
+        function getSupervisorName(employeeId)
+        {
+            let employee = employees.data[employeeId];
+            if(employee)
+            {
+                if(employee.supervisor)
+                {
+                    let supervisor = employees.data[employee.supervisor];
+                    return supervisor.name;
+                }
+                
+            }
+        }
+        console.log('supervisor 2 ',getSupervisorName(2));
+        console.log('supervisor 3 ',getSupervisorName(3))
+
+        const getEmployeeById = (empId)=> employees.data[empId];
+        const getSupervisor = (employee)=>  employees.data[employee.supervisor];
+        const getName = (employee)=> employee.name;
+
+        let empId = -3;
+        const result = MayBe.of(empId)
+                            .map(getEmployeeById)  
+                            .map(getSupervisor)
+                            .map(getName);
+        console.log('Result ',result.value);
+    </script>
+</html>

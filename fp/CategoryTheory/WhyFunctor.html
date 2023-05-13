@@ -1,0 +1,42 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.28.0/ramda.js"></script>
+    <script>
+        /*
+        let count = 1;
+        count = count +1;//
+        */
+        const identity = (x)=>x;
+        const Container = (value)=>({
+            value,
+            map(fn)
+            {
+                return Container(fn(value));
+            }
+        });
+        Container.of = Container;
+        const count = Container.of(2);
+
+        const pipe = (funA,funB)=> x=> funB(funA(x));
+        const incOne = (x)=> x+1;
+        const double = (x)=> x*2;
+        const addTwo = (x) => x + 2;
+
+        let result = count.map(incOne)
+                          .map(addTwo)  
+                          .map(double);
+        console.log('Count ',count);
+        console.log('Result ',result);
+
+        let result2 = count.map(identity);
+        console.log('Rule1 Result2 ',result2.value == count.value);
+
+        //map (g . h) = (map g) . (fmap h)
+        let newFunc = pipe(incOne,addTwo);
+        let result3 = count.map(newFunc);
+        let result4 = count.map(incOne)
+                           .map(addTwo);
+
+        console.log('Rule2 Result3 ',result3.value == result4.value);                   
+
+    </script>
+</html>
