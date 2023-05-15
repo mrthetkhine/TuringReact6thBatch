@@ -1,0 +1,148 @@
+<html>
+    <script>
+   
+   const Failure = (value)=>({
+        tag: 'Failure',
+        map(){
+            return Failure.of(value);
+        },
+        val(){
+            return value;
+        },
+        matchWith(context)
+        {
+            return context.failure(value);
+        }
+       
+
+   });
+   Failure.of = value=> Failure(value);
+
+   const Sucess = (value)=>({
+        tag: 'Sucess',
+        val(){
+            return value;
+        },
+        map(fn){
+            return Sucess.of(fn(value));
+        },
+        matchWith(context)
+        {
+            return context.success(value);
+        }
+       
+   });
+   Sucess.of = Sucess;
+
+   
+    let obj = {
+        name : 'Tk',
+        age : 38,
+        email : 'someone@gmail.com'
+    };
+    const notEmpty = (x)=> x!='';
+    const minLength = (len)=>(x)=> x.length >= len;
+    const maxLength = (len)=>(x)=> x.length <= len;
+
+
+    const isNameNotEmpty = (obj)=> notEmpty(obj.name)?
+                                            Sucess(obj)
+                                            :Failure('Name is empty');
+    const emailNotEmpty = (obj)=> notEmpty(obj.email) ?
+                                            Sucess(obj)
+                                            :Failure('Email is empty');
+    const validEmail = (obj)=> obj.email.includes('@');
+    const ageValidRange = (obj)=> obj.age >0 && obj.age < 100;
+
+    function andCombinators(...validators)
+    {
+        return function(x)
+        {
+            return validators.reduce((a,validator)=>{
+                //console.log('A ',a , ' B ',validator);
+                return a && validator(x);
+            }, true);
+        }
+
+    }
+    function orCombinators(...validators)
+    {
+        return function(x)
+        {
+            return validators.reduce((a,validator)=>{
+                //console.log('A ',a , ' B ',validator);
+                return a || validator(x);
+            }, false);
+        }
+
+    }
+    /*
+    [ validator->Sucess|Failure, ]
+    */
+    function validatorCombinator(...validators)
+    {
+        return function(obj)
+        {
+            return validators.reduce((previousResult,validator)=>{
+                //console.log('A ',previousResult , ' B ',validator);
+                let result = validator(obj);
+                
+                if(result.tag == 'Failure')
+                {
+                    if(previousResult.tag == 'Failure')
+                    {
+                        let errorMessage = previousResult.val() + ' ,'+result.val();
+                        return Failure(errorMessage);
+                    }
+                    return result;
+                }
+                else
+                {
+                    return Sucess(obj);
+                }
+            }, Sucess(obj));
+        }
+    }
+    /*
+    let result = isNameNotEmpty({name: 'TK',})
+                            .map(emailNotEmpty);
+    */
+    const combinator = validatorCombinator(isNameNotEmpty,emailNotEmpty);
+   combinator({
+        name :'',
+        email: '',
+    }).matchWith({
+        success:(obj)=>console.log('Validation ok ',obj),
+        failure:(obj)=> console.log('Validaton failed')
+    });       
+    //console.log('Combinator ',combinator(obj).val()); 
+    combinator(obj)
+              .map(x=> console.log('Save into db',x));             
+    /*                        
+    console.log('Name not empty ',result.val());
+    console.log('Name not empty ',result.val().val());
+    */
+    /*
+    const validators = [minLength(3), maxLength(5)];
+    console.log(andCombinators(...validators)('Hello'));
+    console.log(andCombinators(...validators)('He'));
+
+    const nameAndEmailValidator = andCombinators(isNameNotEmpty,emailNotEmpty);
+    console.log('Name And email not empty ', nameAndEmailValidator(obj));
+    console.log('Name And email not empty ', nameAndEmailValidator({
+        name :'',
+        
+    }));
+
+    const orValidator = orCombinators(emailNotEmpty,ageValidRange);
+    console.log('OrValidator ', orValidator({
+        email:'',
+        age : 30
+    }));
+    console.log('OrValidator ', orValidator({
+        email:'',
+        age : 130
+    }));
+    */
+    </script>
+</html>

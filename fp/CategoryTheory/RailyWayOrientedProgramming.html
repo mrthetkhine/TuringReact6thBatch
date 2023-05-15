@@ -1,0 +1,67 @@
+<html>
+    <script>
+    //sad path    
+    const Left = (value)=>({
+        map(){
+            return Left.of(value);
+        },
+        join(){
+            return Left.of(value);
+        },
+        chain(){
+            return Left.of(value);
+        },
+        toString: () => `Left(${ value })`,
+        val(){
+            return value;
+        },
+        ap(){
+            return Left.of(value);
+        }
+
+   });
+   Left.of = value=> Left(value);
+
+   const Right = (value)=>({
+        val(){
+            return value;
+        },
+        map(fn){
+            return Right.of(fn(value));
+        },
+        join(){
+            //console.log("This case ",value);
+            if((value instanceof Left) ||
+                (value instanceof Right) )
+            {
+                
+                return value;
+            }
+            else
+            {
+                return Right.of(value);
+            }
+        },
+        chain(fn){
+            return fn(value);
+        },
+        ap(otherEither) {
+            const functionToRun = otherEither.val();
+            console.log('Function to run ',functionToRun);
+            return this.map(functionToRun);
+        },
+       toString: () => `Id(${ value })`
+   });
+   Right.of = Right;
+   console.log("Left ", Left.of(3).map().toString());
+   console.log("Right >>", Right.of(3).map(x=> x+ 1).val());
+   
+   
+   console.log(Right.of(Left.of(3)).map(x=> x+ 1).join().toString());
+   console.log("Right ", Right.of(3).map(x=> x+ 1).chain(x=>x+4));
+
+   let monadFunc = Right.of(x=>x+1);
+   console.log("Right ",Right.of(1).ap(monadFunc).val());
+   
+    </script>
+</html>

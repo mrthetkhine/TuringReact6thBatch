@@ -1,0 +1,52 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.28.0/ramda.js"></script>
+    <script>
+ 
+        const Nothing = (value)=>({
+            value,
+            map(fun)
+            {
+                return Nothing(value);
+            }
+        });
+        Nothing.of = Nothing;
+        const Some = (value)=>({
+            value,
+            map(fun)
+            {
+                return Some(fun(value));
+            }
+        });
+        Some.of = Some;
+        const Either = {
+            Some ,
+            Nothing
+        };
+
+        const incOne = (x)=> x+1;
+        let nothing = Nothing.of('some error')
+                             .map(incOne);
+        console.log('Nothing ',nothing);
+                    
+        let something = Some.of(3)
+                            .map(incOne);
+        console.log('Something ',something);
+
+        function div(a,b)
+        {
+            if(isNaN(a) || isNaN(b))
+            {
+                //throw exception
+                return Nothing.of('A or b is NaN');
+            }
+            else
+            {
+                return Some.of(a/b);
+            }
+        }
+        let result = div(10,NaN)
+                        .map(incOne);
+        console.log('Result ',result.value);
+        
+    </script>
+</html>

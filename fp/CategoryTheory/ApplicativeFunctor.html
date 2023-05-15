@@ -1,0 +1,31 @@
+<html>
+    <script>
+   
+    const Container = (value)=>({
+            val(){
+                return value;
+            },
+            map(fn){
+                return Container.of(fn(value));
+            },
+            /*
+            Container'a -> func(another'value)
+            */
+            ap(another)
+            {
+                return another.map(value);
+            }
+    });
+    Container.of = Container;
+    const add = x=> y => x + y;
+
+    const inc = (x)=> x+1;
+    let a = Container.of(2);
+    let result = Container.of(3)
+                        .map(add) // Containter( add(3))
+                        .ap(a)//add(3)(2)
+                        .map(inc);
+   // let result = add3.ap(a);                       
+    console.log('Result ',result.val());
+    </script>
+</html>

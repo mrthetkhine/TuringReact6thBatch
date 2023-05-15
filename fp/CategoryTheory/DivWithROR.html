@@ -1,0 +1,54 @@
+<html>
+    <script>
+    //sad path    
+    const Left = (value)=>({
+        map(){
+            return Left.of(value);
+        },
+        val(){
+            return value;
+        },
+        matchWith(context)
+        {
+            return context.left(value);
+        }
+       
+
+   });
+   Left.of = value=> Left(value);
+
+   const Right = (value)=>({
+        val(){
+            return value;
+        },
+        map(fn){
+            return Right.of(fn(value));
+        },
+        matchWith(context)
+        {
+            return context.right(value);
+        }
+       
+   });
+   Right.of = Right;
+    function div(a,b)
+    {
+        if( isNaN(a) || isNaN(b))
+        {
+            return Left('A or b is NaN');
+        }
+        else
+        {
+            return Right(a/b);
+        }
+    }
+    let inc = (x)=> x+1;
+    let result = div(10,2)
+                    .map(inc)
+                    .matchWith({
+                        right:(x)=>console.log('Sucess case ',x),
+                        left:(err)=> console.log('There is error ',err)
+                    })
+    //console.log('Result ',result.val());
+    </script>
+</html>

@@ -1,0 +1,67 @@
+<html>
+    <script>
+   
+    let obj = {
+        name : 'Tk',
+        age : 38,
+        email : 'someone@gmail.com'
+    };
+    const notEmpty = (x)=> x.length > 0;
+    const minLength = (len)=>(x)=> x.length >= len;
+    const maxLength = (len)=>(x)=> x.length <= len;
+
+
+    const isNameNotEmpty = (obj)=> notEmpty(obj.name);
+    const emailNotEmpty = (obj)=> notEmpty(obj.email);
+    const validEmail = (obj)=> obj.email.includes('@');
+    const ageValidRange = (obj)=> obj.age >0 && obj.age < 100;
+
+    function andCombinators(...validators)
+    {
+        return function(x)
+        {
+            return validators.reduce((a,validator)=>{
+                //console.log('A ',a , ' B ',validator);
+                return a && validator(x);
+            }, true);
+        }
+
+    }
+    function orCombinators(...validators)
+    {
+        return function(x)
+        {
+            return validators.reduce((a,validator)=>{
+                //console.log('A ',a , ' B ',validator);
+                return a || validator(x);
+            }, false);
+        }
+
+    }
+    /*
+    console.log('Min Length ',minLength(3)('TK'));
+    console.log('Max Length ',maxLength(3)('TKEEE'));
+    console.log('Max Length ',maxLength(3)('TKE'));
+    */
+    const validators = [minLength(3), maxLength(5)];
+    console.log(andCombinators(...validators)('Hello'));
+    console.log(andCombinators(...validators)('He'));
+
+    const nameAndEmailValidator = andCombinators(isNameNotEmpty,emailNotEmpty);
+    console.log('Name And email not empty ', nameAndEmailValidator(obj));
+    console.log('Name And email not empty ', nameAndEmailValidator({
+        name :'',
+        
+    }));
+
+    const orValidator = orCombinators(emailNotEmpty,ageValidRange);
+    console.log('OrValidator ', orValidator({
+        email:'',
+        age : 30
+    }));
+    console.log('OrValidator ', orValidator({
+        email:'',
+        age : 130
+    }));
+    </script>
+</html>

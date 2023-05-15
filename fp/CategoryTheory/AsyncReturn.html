@@ -1,0 +1,19 @@
+<html>
+    <script>
+    function callback(result)
+    {
+        console.log('Callback executed ',result);
+    }
+    function doAsync(func)
+    {
+        console.log('Function called');
+        setTimeout(()=>{
+            console.log('Execute after 1second');
+            func(100);
+        },1000);
+        
+    }
+    let result = doAsync(callback);
+    console.log('Result ',result);
+    </script>
+</html>
