@@ -1,0 +1,46 @@
+<html>
+    <script>
+
+
+    const Container = (value)=>({
+            val(){
+                return value;
+            },
+            map(fn){
+                return Container.of(fn(value));
+            },
+            join()
+            {
+                return value;
+            },
+            flatMap(fn)
+            {
+                //return this.map(fn).join();
+                return fn(value);
+            },
+    });
+    Container.of = Container;
+
+   
+    let normalFunc = (x) => x + 1;
+    let mondaicDoubleFunc = (x)=> Container.of(x*2);
+    let normalDouble = (x)=> x * 2;
+    
+    let counter = Container.of(3)
+                            .map(mondaicDoubleFunc)
+                            .join()
+                            .map(normalFunc);
+    console.log('Counter ',counter.val());
+
+    counter = Container.of(5)
+                            .flatMap(mondaicDoubleFunc)
+                            .map(normalFunc);
+    console.log('Counter ',counter.val());
+
+    //left identity
+    //unit(x) >>= f ↔ f(x)
+    let result = Container.of(3)
+                          .flatMap(mondaicDoubleFunc);
+    console.log('Rule 1', result.val()==normalDouble(3));
+    </script>   
+</html>

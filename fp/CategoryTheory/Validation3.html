@@ -6,6 +6,10 @@
         map(){
             return Failure.of(value);
         },
+        flatMap(fn)
+        {
+            return Failure.of(value);
+        },
         val(){
             return value;
         },
@@ -33,6 +37,10 @@
         map(fn){
             return Sucess.of(fn(value));
         },
+        flatMap(fn)
+        {
+            return fn(value);
+        },
         matchWith(context)
         {
             return context.success(value);
@@ -50,24 +58,13 @@
    Sucess.of = Sucess;
 
    
-    let obj = {
-        name : 'Tk',
-        age : 38,
-        email : 'someone@gmail.com'
-    };
+    
     const notEmpty = (x)=> x!='';
     const minLength = (len)=>(x)=> x.length >= len;
     const maxLength = (len)=>(x)=> x.length <= len;
 
 
-    const isNameNotEmpty = (obj)=> notEmpty(obj.name)?
-                                            Sucess(obj)
-                                            :Failure('Name is empty');
-    const emailNotEmpty = (obj)=> notEmpty(obj.email) ?
-                                            Sucess(obj)
-                                            :Failure('Email is empty');
-    const validEmail = (obj)=> obj.email.includes('@');
-    const ageValidRange = (obj)=> obj.age >0 && obj.age < 100;
+ 
 
     function andCombinators(...validators)
     {
@@ -108,7 +105,8 @@
     let result = isNameNotEmpty({name: 'TK',})
                             .map(emailNotEmpty);
     */
-    const combinator = validatorCombinator(isNameNotEmpty,emailNotEmpty);
+    //const combinator = validatorCombinator(isNameNotEmpty,emailNotEmpty);
+    
     /*
    combinator({
         name :'',
@@ -120,32 +118,28 @@
     //console.log('Combinator ',combinator(obj).val()); 
     combinator(obj)
               .map(x=> console.log('Save into db',x)); 
-    */                      
-    /*                        
-    console.log('Name not empty ',result.val());
-    console.log('Name not empty ',result.val().val());
     */
-    /*
-    const validators = [minLength(3), maxLength(5)];
-    console.log(andCombinators(...validators)('Hello'));
-    console.log(andCombinators(...validators)('He'));
+    let obj = {
+        name : '',
+        age : 38,
+        email : 'someone@gmail.com'
+    };
+    const isNameNotEmpty = (obj)=> notEmpty(obj.name)?
+                                            Sucess(obj)
+                                            :Failure('Name is empty');
+    const emailNotEmpty = (obj)=> notEmpty(obj.email) ?
+                                            Sucess(obj)
+                                            :Failure('Email is empty');
+    const validEmail = (obj)=> obj.email.includes('@')
+                                            ?Sucess(obj)
+                                            :Failure('Invalid email');
+    const ageValidRange = (obj)=> obj.age >0 && obj.age < 100 
+                                            ?Sucess(obj)
+                                            :Failure('Invalid age');
 
-    const nameAndEmailValidator = andCombinators(isNameNotEmpty,emailNotEmpty);
-    console.log('Name And email not empty ', nameAndEmailValidator(obj));
-    console.log('Name And email not empty ', nameAndEmailValidator({
-        name :'',
-        
-    }));
-
-    const orValidator = orCombinators(emailNotEmpty,ageValidRange);
-    console.log('OrValidator ', orValidator({
-        email:'',
-        age : 30
-    }));
-    console.log('OrValidator ', orValidator({
-        email:'',
-        age : 130
-    }));
-    */
+    let validationResult= Sucess.of(obj)
+                                .flatMap(isNameNotEmpty) //Box(Box(x))
+                                .flatMap(validEmail);//validEmail(Box(x)) =>
+    console.log('Validation Result ',validationResult.val());
     </script>
 </html>
