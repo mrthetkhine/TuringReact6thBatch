@@ -1,0 +1,37 @@
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@0.27.1/dist/ramda.min.js"></script>
+    <script>
+        //https://dev.to/devinholloway/functional-lenses-in-javascript-with-ramda-4li7#:~:text=Lenses%20provide%20a%20means%20to,can%20bring%20about%20multiple%20benefits.
+        
+        let obj = {
+            name : "Tk",
+            age : 23,
+            score : -30,
+            /*
+            address: {
+                city: "Yangon",
+            }*/
+        };
+        let another = {
+            ... obj,
+            age: obj.age + 1,
+            address : {
+                city : "Kalaw",
+                state : 'Shan'
+            }
+        };
+        console.log("Another ",another);
+
+        console.log("R.prop ", R.prop("age")(obj));
+        let anotherClone = R.assoc('age',20,obj);
+        console.log("Another clone ",anotherClone);
+
+        anotherClone = R.assocPath(['address','city'],'Somewhere',obj);
+        console.log("Another clone ",anotherClone);
+
+        //console.log('Object ',obj.address.city);
+        console.log('Object ',R.path(['address','city'],obj));
+        //obj.address.city = 'Something';
+        
+    </script>
+</html>

@@ -1,0 +1,25 @@
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/ramda@0.27.1/dist/ramda.min.js"></script>
+    <script>
+        
+        const person = {
+            name: 'Randy',
+            socialMedia: {
+                github: 'randycoulman',
+                twitter: '@randycoulman'
+            }
+        }
+        
+        const nameLens = R.lens(R.prop('name'), R.assoc('name'))
+        const twitterLens = R.lens(
+            R.path(['socialMedia', 'twitter']),
+            R.assocPath(['socialMedia', 'twitter'])
+        )
+        console.log("View ",R.view(nameLens,person));
+        let another = R.set(nameLens,'Name updated',person);
+        console.log('Another ',another);
+
+        console.log('R.over ',R.over(nameLens,R.toUpper,person));
+        console.log('Person ',person);
+    </script>
+</html>
