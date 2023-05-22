@@ -1,0 +1,43 @@
+<html>
+   
+    <script>
+
+        class Engine
+        {
+            start()
+            {
+                console.log('Engine start');
+            }
+        }
+        class ElectricEngine extends Engine
+        {
+            start()
+            {
+                console.log('ElectricEngine start');
+            }
+        }
+        class DieselEngine extends Engine
+        {
+            start()
+            {
+                console.log('DieselEngine start');
+            }
+        }
+        class Car
+        {
+            constructor(engine)
+            {
+                this.engine = engine;
+            }
+            start()
+            {
+                console.log('Car start');
+                this.engine.start();
+                
+            }
+        }
+        let engine = new DieselEngine();
+        let car = new Car(engine);
+        car.start();
+    </script>
+</html>

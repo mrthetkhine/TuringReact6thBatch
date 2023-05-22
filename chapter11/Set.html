@@ -1,0 +1,27 @@
+<html>
+   
+    <script>
+        let arr = [10,20,10,30,20];
+
+        let set = new Set(arr);
+        console.log('Set ',set);
+        console.log('Set.size ',set.size);
+
+        set.add('one');
+        set.add(3);
+        set.add(10);
+        console.log('Set ',set);
+        console.log('Set.size ',set.size);
+
+        set.add([10,20]);
+        console.log('Set ',set);
+        set.delete(10);
+        console.log('Set ',set);
+
+        //set.clear();
+        console.log('Set ',set);
+
+        set.delete("20");
+        console.log('Set ',set);
+    </script>
+</html>
