@@ -1,0 +1,23 @@
+<html>
+   <body>
+    <button id="btnAllocate" type="button">Allocate</button>
+   </body>
+    <script>
+        //let bytes = new Uint8Array(1024);
+        let arr =[];
+        document.getElementById('btnAllocate').addEventListener('click',()=>{
+            console.log('Allcoate');
+            for(let i=0;i< 10;i++)
+                arr.push(new Uint8Array(100_000));
+                //arr.push(new Array(100_000));
+            another = arr;
+        });
+
+        let buffer = new ArrayBuffer(1024*1024);
+        let asbytes = new Uint8Array(buffer);
+        let asints = new Int32Array(buffer); 
+        asints[0] = 200;
+        console.log('Asbyte ',asbytes[0]);
+
+    </script>
+</html>

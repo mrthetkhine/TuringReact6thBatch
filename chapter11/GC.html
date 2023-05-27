@@ -1,0 +1,25 @@
+<html>
+   <body>
+        <button id="btnAllocate" type="button">Allocate</button>
+        <button id="btnAssignNull" type="button">Assing Null</button>
+   </body>
+    <script>
+
+        let arr =[] ;
+        let another;
+        let map = new WeakMap();
+        //map = new Map();
+        map.set(arr,"Something");
+        document.getElementById('btnAllocate').addEventListener('click',()=>{
+            console.log('Allcoate');
+            for(let i=0;i< 10;i++)
+                arr.push(new Array(100_000));
+
+            another = arr;
+        });
+        document.getElementById('btnAssignNull').addEventListener('click',()=>{
+            arr = null;
+            another = null;
+        });
+    </script>
+</html>

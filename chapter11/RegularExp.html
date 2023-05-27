@@ -1,0 +1,63 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+        let re = /ab+c/;
+        console.log('Re.test abc', re.test('abc'));
+        console.log('Re.test abbc', re.test('abbc'));
+        console.log('Re.test ac', re.test('ac'));
+
+        console.log('Re.match helloabbcc', 'helloabbcc'.match(re));
+
+        re = /[xyz]/;
+        console.log('/[xyz]/.test x', re.test('x'));
+        console.log('/[xyz]/.test y', re.test('y'));
+        console.log('/[xyz]/.test z', re.test('z'));
+        console.log('/[xyz]/.test a', re.test('a'));
+
+        console.log();
+        re = /[0-9]+/;
+        console.log('/[0-9]+/.test 393992929', re.test('393992929'));
+        console.log('/[0-9]+/.test 3', re.test('3'));
+        console.log('/[0-9]+/.test ab', re.test('ab'));
+
+        console.log();
+        re = /[^xyz]/;
+        console.log(' /[^xyz]/.test x', re.test('x'));
+        console.log(' /[^xyz]/.test y', re.test('y'));
+        console.log(' /[^xyz]/.test z', re.test('z'));
+        console.log(' /[^xyz]/.test a', re.test('a'));
+
+        console.log();
+        re = /^Java/;
+        console.log(' /^Java/.test Java', re.test('Java'));
+        console.log(' /^Java/.test JavaScript', re.test('JavaScript'));
+        console.log(' /^Java/.test  JavaScript', re.test(' JavaScript'));
+
+        re = /^Java.b/;
+        console.log(' /^Java.b/.test Javacb', re.test('Javacb'));
+        console.log(' /^Java.b/.test Javakb', re.test('Javakb'));
+        console.log(' /^Java.b/.test  Java\rb', re.test('Java\rb'));
+
+        re = /\d+/;
+        console.log('/\d+/.test 393992929', re.test('393992929'));
+        console.log('/\d+/.test 3', re.test('3'));
+        console.log('/\d+/.test ab', re.test('ab'));
+       
+        re = /\D+/;
+        console.log('/\D+/.test 393992929', re.test('393992929'));
+        console.log('/\D+/.test 3', re.test('3'));
+        console.log('/\D+/.test ab', re.test('ab'));
+
+        re = /\w+/;
+        console.log('/\W+/.test 393992929', re.test('393992929'));
+        console.log('/\W+/.test Abe_', re.test('Abe_'));
+        console.log('/\W+/.test abcd', re.test('abcd'));
+        console.log('/\W+/.test $', re.test('$'));
+
+        re = /\s+/;
+        console.log('/\s+/.test hello hi', re.test('hello hi'));
+        console.log('/\s+/.test Abe_', re.test('Abe_'));
+    </script>
+</html>
