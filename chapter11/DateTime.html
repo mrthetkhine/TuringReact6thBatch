@@ -1,0 +1,28 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+        let date = new Date();
+        console.log("Date ",date);
+
+        date = new Date(2023,4,27,6,30);
+        console.log("Date ",date);
+
+        let milisecond = date.getTime();
+        console.log('Milisecond ',milisecond);
+
+        date  = new Date(milisecond);
+        console.log("Date ",date);
+
+        let json = {
+            date : date.getTime() 
+        };
+        console.log('JSON ',JSON.stringify(json));
+
+        console.log('Year ', date.getFullYear());
+        console.log('Month ', date.getMonth());
+        console.log('Date ', date.getDate());
+        console.log('Day ', date.getDay());
+    </script>
+</html>

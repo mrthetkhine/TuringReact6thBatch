@@ -1,0 +1,52 @@
+<html>
+   <body>
+   
+   </body>
+  
+    <script>
+       let obj = {
+        name : 'TK',
+        age : 38,
+        milestone: ['Nothing','Something'],
+        _:"Data",
+        display()
+        {
+            console.log('This name ',this.name);
+        }
+       };
+       let str = JSON.stringify(obj);
+       console.log('Str ',str);
+
+       let obj2 = JSON.parse(str,(key,value)=>{
+        if(key ===  '_')
+        {
+            return undefined;
+        }
+        return value;
+       });
+       console.log('Obj2 ',obj2);
+
+       str = JSON.stringify(obj,["name","age"]);
+       console.log("Str ",str);
+
+       let address = {
+            city: "YGN",
+       };
+       let user = {
+            name : "username",
+            credential : "Something",
+            address: address,
+            toJSON()
+            {
+                console.log('ToJSON');
+                let that = this;
+                return {
+                    username : that.name,
+                    address: that.address
+                }
+            }
+       }
+       let str2 = JSON.stringify(user);
+       console.log('Str2 ',str2);
+    </script>
+</html>

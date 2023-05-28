@@ -1,0 +1,13 @@
+<html>
+   <body>
+   
+   </body>
+  
+    <script>
+       let euros = Intl.NumberFormat("es", {style: "currency", currency: "EUR"});
+       console.log('Euro ',euros.format(10));
+
+       let pounds = Intl.NumberFormat("en", {style: "currency", currency: "GBP"});
+       console.log("Pound ",pounds.format(1000));
+    </script>
+</html>

@@ -1,0 +1,17 @@
+<html>
+   <body>
+   
+   </body>
+  
+    <script>
+       let url = new URL("https://example.com:8000/path/name?q=term#fragment");
+       console.log('Url ',url);
+
+       const uri = 'https://mozilla.org/?x=hello java';
+       const encoded = encodeURI(uri);
+       console.log('Encoded ',encoded);
+
+       const newUri = decodeURI(encoded);
+       console.log('New Uri ',newUri);
+    </script>
+</html>
