@@ -1,0 +1,30 @@
+<html>
+   <body>
+      
+   </body>
+  
+    <script>
+        function* getGenerator()
+        {
+            console.log('First step');
+            yield 1;
+            console.log('Second step');
+            yield 2;
+            console.log('Thrid step');
+            yield 3;
+            console.log('Fouth step');
+            return ;
+        }
+        let gen = getGenerator();
+        /*
+        console.log('Gen ',gen.next());
+        console.log('Gen ',gen.next());
+        console.log('Gen ',gen.next());
+        console.log('Gen ',gen.next());
+        */
+       for(const i of gen)
+       {
+        console.log(i);
+       }
+    </script>
+</html>

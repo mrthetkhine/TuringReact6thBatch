@@ -1,0 +1,33 @@
+<html>
+   <body>
+      
+   </body>
+  
+    <script>
+        function* filter(collection, predicate) {
+            for (const value of collection) {
+                if (predicate(value)) {
+                    console.log('Predicate ok');
+                    yield value;
+                }
+            }
+        }
+        let called = 0;
+        const odds = filter([1, 2, 3, 4, 5,7,9], (value) => {
+            called++;
+            return value % 2;
+        });
+        function take(n,lazyCollection)
+        {
+            let items = [];
+            for(let i=0;i<n;i++)
+            {
+                items.push(lazyCollection.next().value);
+            }
+            return items;
+        }
+        
+        let data = take(2,odds);
+        console.log('Data ',data);
+    </script>
+</html>
