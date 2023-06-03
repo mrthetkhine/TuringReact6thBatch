@@ -1,0 +1,20 @@
+const fs = require("fs");
+
+console.log('Before');
+fs.readFile('./hello.txt',(err,data)=>{
+    if(!err)
+    {
+        fs.readFile('./hello2.txt',(err2,data2)=>
+        {
+            if(!err2)
+            {
+                console.log('Data readdone');
+                console.log('Data ',data.toString().length);
+                console.log('Data2 ',data2.toString().length);
+            }
+            
+        });
+       
+    }
+});
+console.log('End');

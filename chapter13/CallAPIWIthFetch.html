@@ -1,0 +1,33 @@
+<html>
+    <script>
+        /*
+        fetch('https://jsonplaceholder.typicode.com/todos')
+            .then(data=>data.json())
+            .then(json=> console.log(json));
+        */
+        function customFetch(url)
+        {
+            return new Promise((resolve,reject)=>{
+                let request = new XMLHttpRequest();
+                request.open("GET",url);
+                request.send();
+                request.onload = function()
+                {
+                    console.log('Data received');
+                    if(request.status == 200)
+                    {
+                        //console.log('Request ',request.responseText);
+                        resolve(JSON.parse(request.responseText));
+                    }
+                }
+                request.onerror = function(err)
+                {
+                    reject(err);
+                }
+            });
+        }
+        customFetch('https://jsonplaceholder.typicode.com/todos')
+            //.then(data=>data.json())
+            .then(json=> console.log(json));
+    </script>
+</html>

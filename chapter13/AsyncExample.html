@@ -1,0 +1,21 @@
+<html>
+   <body>
+      
+   </body>
+  
+    <script>
+        function doSomethingAsync(callback)
+        {
+            console.log('Do something executed');
+            setTimeout(() => {
+                console.log('DoSomething done');
+                callback("Data");
+            }, 2000);
+        }
+        console.log('Before');
+        doSomethingAsync((data)=>{
+            console.log('Done something done result ',data);
+        });
+        console.log('End ');
+    </script>
+</html>

@@ -1,0 +1,52 @@
+<html>
+    <script>
+        function div(a,b,callback)
+        {
+            setTimeout(()=>{
+                if( isNaN(a) || isNaN(b))
+                {
+                    return callback('A or b is NaN',null);
+                }
+                else
+                {
+                    return callback(null,a/b);
+                }
+                
+            },1000);
+            
+        }
+        /*
+        div(10,NaN,(err,data)=>{
+            if(!err)
+            {
+                console.log('Data ',data);
+            }
+            else
+            {
+                console.log('Err ',err);
+            }
+        });
+        */
+        function divPromise(a,b)
+        {
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    if( isNaN(a) || isNaN(b))
+                    {
+                        return reject('A or b is NaN');
+                    }
+                    else
+                    {
+                        return resolve(a/b);
+                    }
+                    
+                },1000);
+            });
+            
+        }
+        divPromise(10,NaN)
+            .then(result=> result * 2)
+            .then(data=>console.log('Result ok',data),err=>console.log("Err ",err));
+        console.log('End');
+    </script>
+</html>
