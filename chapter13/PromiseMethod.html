@@ -1,0 +1,12 @@
+<html>
+    <script>
+       
+       let promises = [
+        Promise.resolve(30),
+        Promise.reject(20)
+       ];
+       Promise.allSettled(promises)
+              .catch(err=>console.log('Err ',err))
+              .then(data=>console.log(data))
+    </script>
+</html>

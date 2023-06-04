@@ -1,0 +1,33 @@
+<html>
+    <script>
+       /*
+       async function getData()
+       {
+            console.log('get data started');
+            let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+            let json = await response.json();
+            console.log('JSON ',json);
+       }
+       getData();
+       console.log('End');
+       */
+      function getPromise()
+      {
+        return Promise.reject(4);
+      }
+      async function process()
+      {
+        try
+        {
+            let data = await getPromise();
+            console.log('Data ',data);
+        }
+        catch(err)
+        {
+            console.log('Err ',err);
+        }
+        
+      }
+      process();
+    </script>
+</html>
