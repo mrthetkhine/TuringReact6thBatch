@@ -1,0 +1,40 @@
+<html>
+    <script>
+      
+      let obj = {
+        name : "TK",
+        age : undefined
+      };
+      let obj2 = {
+        address : {
+            city: "Ygn"
+        },
+        someField : undefined,
+        another : undefined,
+      }
+      /*
+      function checkFieldAreNotNull(obj)
+      {
+        let arr = [];
+        for(let [prop,value] of Object.entries(obj))
+        {
+            //console.log('Value ',value);
+            if(value === undefined)
+            {
+                arr.push('Prop '+prop+ ' is undefined');
+            }
+        }
+        return arr;
+      }*/
+      function checkFieldAreNotNull(obj)
+      {
+        return Object.entries(obj).reduce( 
+            (message,[prop,value])=> (value === undefined)?
+                            [...message,"Prop "+prop+" is undefined"]
+                            :message
+                            ,[]);
+      }
+      let result = checkFieldAreNotNull(obj2);
+      console.log('Result ',result);
+    </script>
+</html>

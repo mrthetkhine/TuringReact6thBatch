@@ -1,0 +1,22 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        let obj = {
+            name : "TK",
+            age : 38
+        };
+        console.log('Is extensbile ',Object.isExtensible(obj));
+        //Reflect.preventExtensions(obj);
+        //Object.seal(obj);
+        Object.freeze(obj);
+        obj.someting = "Hello";
+        delete obj.age;
+        obj.name = "Change";
+        console.log("Obj ",obj);
+
+        console.log('Frozedn ',Object.isFrozen(obj));
+        console.log('Sealed ',Object.isSealed(obj));
+    </script>
+</html>

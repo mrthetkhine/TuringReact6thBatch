@@ -1,0 +1,42 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+       String.prototype.ourUpper = function()
+       {
+        return this.toUpperCase();
+       }
+       console.log("hello".ourUpper());
+       class Human
+       {
+        constructor(name, age)
+        {
+            console.log('Human Constructor ');
+            this.name = name;
+            this.age = age;
+        }
+       }
+       class Teacher
+       {
+        constructor(name, age)
+        {
+            console.log('Teacher Constructor ');
+            this.name = name;
+            this.age = age;
+        }
+       }
+       function factory(type,args)
+       {
+        let mapping = {
+            'human': Human,
+            'teacher' : Teacher
+        }
+        let obj = Reflect.construct(mapping[type],args);
+        return obj;
+       }
+       
+       let obj = factory('teacher',['TK',30])
+       console.log("Obj ",obj);
+    </script>
+</html>

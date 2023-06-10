@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <div>
+           Name  <span id="txtName"></span><br/>
+           Age  <span id="txtAge"></span>
+        </div>
+    </body>
+    <script>
+      let obj = {
+        name : "TK",
+        age : 38,
+      }
+      Object.defineProperties(obj,{
+        something :{
+            /*value : 20,*/
+            /*writable : false,*/
+            enumerable : false,
+            configurable : false,
+            get ()
+            {
+                console.log('Get run');
+                return 30;
+            }
+        }
+      });
+      obj.something = "Nothing";
+      console.log("Obj ",obj);
+      delete obj.something;
+      for(let prop in obj)
+      {
+        console.log('Prop ',prop);
+      }
+    </script>
+</html>

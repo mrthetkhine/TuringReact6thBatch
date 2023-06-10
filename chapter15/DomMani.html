@@ -1,0 +1,18 @@
+<html>
+    <script>
+        console.log('Script1 executed');
+        addEventListener("DOMContentLoaded", (event) => {
+            console.log('DOM fully loaded');
+            document.getElementById("txtHello").textContent  ="Hello From JS";
+        });
+       
+     
+     </script>
+    <body>
+        <div id="txtHello"></div>
+    </body>
+    <script>
+        console.log('Script2 executed');
+    </script>
+    
+</html>

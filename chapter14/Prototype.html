@@ -1,0 +1,28 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        let obj = {
+            name : "TK",
+            age : 38
+        };
+        console.log("Obj ",obj);
+        console.log('toString ',obj.toString());
+
+        console.log("obj proptotype ",Object.getPrototypeOf(obj));
+
+        let another = Object.create(obj);
+        console.log("Another proptotype ",Object.getPrototypeOf(another));
+        console.log("obj.isPropttypeof ", obj.isPrototypeOf(another));
+        
+        let obj2 = {
+            data : 100
+        }
+        let obj3 = {};
+        Object.setPrototypeOf(obj3,obj2);
+        console.log("Obj3 ",obj3);
+        console.log("Obj3.data ",obj3.data);
+
+    </script>
+</html>

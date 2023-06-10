@@ -1,0 +1,56 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+       
+       let obj = {
+        method1()
+        {
+            return 'method1';
+        },
+        method2()
+        {
+            return 'method2';
+        }
+       }
+       let handler = {
+        get(target,prop, receiver)
+        {
+            //console.log('Target ',target, " prop ",prop, "Receiver ",receiver);
+            if(typeof target[prop] === 'function')
+            { 
+                console.log("Method ", prop , "Invoked ");
+            }
+            return target[prop];
+        },
+       
+       };
+       const proxy = new Proxy(obj,handler);
+       console.log('Proxy ',proxy);
+       //console.log('Method1 return ',proxy.method1());
+       proxy.method1();
+       proxy.method2();
+
+       let m2 = proxy.method2;
+       function sum(a, b) {
+        return a + b;
+     }
+
+    handler = {
+        apply: function(target, thisArg, argumentsList) {
+            console.log(`Calculate sum: ${argumentsList}`);
+            // Expected output: "Calculate sum: 1,2"
+
+            return target(...argumentsList) * 10;
+        }
+    };
+
+    let proxy1 = new Proxy(sum, handler);
+
+    console.log(sum(1, 2));
+    // Expected output: 3
+    console.log(proxy1(1, 2));
+    // Expected output: 30
+    </script>
+</html>

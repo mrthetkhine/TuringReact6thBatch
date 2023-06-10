@@ -1,0 +1,66 @@
+<html>
+    <body>
+        <div>
+           Name  <span id="angrylar_name"></span><br/>
+           Age  <span id="angrylar_age"></span>
+        </div>
+        <div>
+            School  <span id="angrylar_school"></span><br/>
+            address  <span id="angrylar_address"></span>
+        </div>
+    </body>
+    <script>
+      let obj = {
+        name : "TK",
+        age : 38,
+      }
+      let another = {
+        school : "UCSY",
+        address : "Nowhere"
+      }
+      function updateView(obj)
+      {
+        //document.getElementById("txtName").textContent = obj.name;
+        //document.getElementById("txtAge").textContent = obj.age;
+        for(let prop in obj)
+        {
+            let element = document.getElementById("angrylar_"+prop);
+            if(element)
+            {
+                element.textContent = obj[prop];
+            }
+        }
+      }
+      updateView(obj);
+
+    function bindModelWithView(obj)
+    {
+        let proxy ={};
+        for(let prop in obj)
+        {
+            Object.defineProperties(proxy,{
+                [prop]:{
+                    get()
+                    {
+                        return obj[prop]
+                    },
+                    set(newValue)
+                    {
+                        obj[prop] = newValue;
+                        updateView(obj);
+                    }
+                }
+            });
+        }
+        return proxy;
+    }
+    //obj.name = "Something";
+    let proxy = bindModelWithView(obj);
+    console.log('Proxy ',proxy.name);
+    proxy.name = "Something";
+    proxy.age = 20;
+
+    let proxy2 = bindModelWithView(another);
+    proxy2.school = "Nothing";
+    </script>
+</html>
