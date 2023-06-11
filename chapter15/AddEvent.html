@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <style>
+            #container{
+                width:300;
+                height:300;
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
+      Hello
+      <div id="outer">
+        <h1> Outer</h1>
+        <div id="container">
+            Container
+      </div>
+      <button type="button" id="btnRemove">Remove Event</button>
+      <button type="button" id="btnPayment">Payment</button>
+      </div>
+     
+    </body>
+    <script>
+      let handler = (event)=>{
+        console.log('Document click ',event);
+      };
+      document.addEventListener("click",handler);
+      document.getElementById("btnRemove").addEventListener("click",()=>{
+        document.removeEventListener("click",handler);
+      });
+      document.getElementById("btnPayment").addEventListener("click",()=>{
+       console.log('Payment click');
+      },{
+        once: true
+      });
+    </script>
+    
+</html>

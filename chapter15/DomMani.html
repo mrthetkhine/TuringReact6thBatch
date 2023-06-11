@@ -1,18 +1,37 @@
 <html>
     <script>
+        function importScript(url)
+        {
+            return new Promise((resolve,reject)=>{
+                let script = document.createElement("script");
+                script.onload = ()=>resolve();
+                script.onerror = (e)=>reject(e);
+                script.src = url;
+                document.head.append(script);
+            });
+        }
         console.log('Script1 executed');
         addEventListener("DOMContentLoaded", (event) => {
             console.log('DOM fully loaded');
             document.getElementById("txtHello").textContent  ="Hello From JS";
+
+            document.getElementById("btnLoad").addEventListener("click",()=>{
+                importScript('./dynamic.js')
+                    .then(()=>console.log('After dyanmic js loaded'));
+            });
         });
        
-     
+        let data = "Hello";
      </script>
+     <script defer src="./defer_code.js"></script>
+     <script async src="./async_lib.js"></script>
     <body>
         <div id="txtHello"></div>
+        <button type="button" id="btnLoad">Load</button>
     </body>
     <script>
         console.log('Script2 executed');
+        console.log('Data ',data);
     </script>
     
 </html>

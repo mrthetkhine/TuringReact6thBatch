@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <style>
+            #container{
+                width:300;
+                height:300;
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
+      Hello
+      <div id="outer">
+        <h1> Outer</h1>
+        <div id="container">
+            Container
+      </div>
+      <button type="button" onclick="alert('Hello')">Click me</button>
+      </div>
+     
+    </body>
+    <script>
+        window.onload = ()=>{
+            console.log('Window onloaded');
+        };
+        window.onload = ()=>{
+            console.log('Window onloaded2');
+        };
+        window.addEventListener("load",()=>{
+            console.log('Window loaded');
+        });
+      document.addEventListener("click",(event)=>{
+        console.log('Document click ',event);
+      });
+      document.addEventListener("click",(event)=>{
+        console.log('Document click2 ',event);
+      });
+      document.getElementById("outer").addEventListener("click",(event)=>{
+        console.log('Outer click ',event);
+      });
+      document.getElementById("container").addEventListener("click",(event)=>{
+        console.log('Container click ',event);
+      });
+      /*
+      document.addEventListener("mousemove",(event)=>{
+        console.log('Mousemove ',event);
+      });
+      */
+    </script>
+    
+</html>

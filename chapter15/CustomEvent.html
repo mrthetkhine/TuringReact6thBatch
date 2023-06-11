@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <style>
+            #container{
+                width:300;
+                height:300;
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
+     
+    </body>
+    <script>
+        function doSomething()
+        {
+            setTimeout(()=>{
+                console.log('Do something done');
+                document.dispatchEvent(new CustomEvent("doSomethingDone",{
+                    detail : "Something"
+                }));
+            },2000);
+        }
+        doSomething();
+
+        document.addEventListener("doSomethingDone",(event)=>{
+            console.log('Do Somethingdone ',event);
+        });
+    </script>
+    
+</html>

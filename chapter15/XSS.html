@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <textarea type="text" id="txtHello"></textarea>
+        <button type="button" id="btnAdd">Add</button>
+        <div id="content"></div>
+    </body>
+    <script>
+      document.getElementById("btnAdd").addEventListener("click",()=>{
+        let userInput = document.getElementById("txtHello").value;
+        document.getElementById("content").innerHTML = userInput;
+      });
+     
+    </script>
+    
+</html>

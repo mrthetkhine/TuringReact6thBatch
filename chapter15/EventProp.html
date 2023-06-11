@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <style>
+            #container{
+                width:300;
+                height:300;
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
+      Hello
+      <div id="outer">
+        <h1> Outer</h1>
+        <div id="container">
+            Container
+      </div>
+      <button type="button" onclick="alert('Hello')">Click me</button>
+      </div>
+      <button type="button" id="btnFire">Fire</button>
+      </div>
+      <a href="http://www.google.com" id="lnkGoogle"> Go to Google</a>
+    </body>
+    <script>
+    
+      document.addEventListener("click",(event)=>{
+        console.log('Document click ',event);
+      },{
+        //capture:true
+      });
+      
+      document.getElementById("outer").addEventListener("click",(event)=>{
+        console.log('Current target ',event.currentTarget);
+        if(event.target == this)
+        {
+            console.log('Outer click ',event);
+        }
+       
+      },{
+        //capture:true
+      });
+      document.getElementById("container").addEventListener("click",(event)=>{
+        console.log('Container click ',event);
+        //event.stopPropagation();
+        //event.stopImmediatePropagation();
+      },{
+       //capture:true
+    });
+        document.getElementById("container").addEventListener("click",(event)=>{
+        console.log('Container click 2',event);
+        //event.stopPropagation();
+      });
+      document.getElementById("lnkGoogle").addEventListener("click",(event)=>{
+        alert('Link click');
+        event.preventDefault();
+      });
+      document.addEventListener('contextmenu',(event)=>{
+        console.log('Right click');
+        event.preventDefault();
+      },{
+        passive: true
+      });
+
+      document.getElementById('btnFire').addEventListener("click",(event)=>{
+        console.log('BtnFire');
+        let container = document.getElementById("container");
+        container.dispatchEvent(new Event("click"));
+      });
+    </script>
+    
+</html>
