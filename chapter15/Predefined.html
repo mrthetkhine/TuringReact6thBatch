@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <style>
+            .blue{
+                color : blue;
+            }
+            .red{
+                color : red;
+            }
+           
+        </style>
+    </head>
+    <body>
+        
+        <div id="container" class="blue"> 
+            Container
+            <div>Child</div>
+            <div>Another</div>
+            <div>Last</div>
+        </div>
+        <div>
+            Siblling
+        </div>
+        <a href="none" id="lnkGoolge">Google</a>
+
+        <h2 id="title" data-section-number="16.1">Attributes</h2>
+    </body>
+    <script>
+        console.log('Image ',document.images);
+        //console.log('Container ',container);
+        let container = document.getElementById('container');
+        console.log('Parent ',container.parentNode);
+        console.log('Parent parent ',container.parentNode.parentNode);
+        console.log('Parent elemnet ',container.parentElement);
+        console.log('Children ',container.children);
+        console.log('firstChild ',container.firstChild);
+        console.log('firstelemnt child ',container.firstElementChild);
+        console.log('lastChild ',container.lastChild);
+
+        console.log('Sibling ',container.nextElementSibling);
+
+        document.getElementById('lnkGoolge').href="http://www.google.com";
+
+        let classList = container.classList;
+        classList.remove('blue');
+        classList.add('red');
+        console.log('ClassList ',classList);
+        console.log('Section ',document.getElementById('title').dataset.sectionNumber);
+    </script>
+    
+</html>

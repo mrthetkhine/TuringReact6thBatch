@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <style>
+            #container{
+                width:300;
+                height:300;
+                background-color: gray;
+            }
+            .my_class
+            {
+                background-color: blue;
+            }
+            div.my_class
+            {
+                background-color: antiquewhite;
+            }
+            a[title]{
+                background-color: blue;
+            }
+            div ~ span{
+                color: blue;
+            }
+            div + span{
+                color:red;
+            }
+            col.selected||td {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+      Hello
+     
+        <h1 class="my_class"> header 1</h1>
+        <h1>header 2</h1>
+        <div class="my_class"> Div </div>
+      <button type="button" id="btnPayment">Payment</button>
+      <a href="http://www.google.com">Google</a>
+      <a href="http://www.bing.com" title="Bing">Bing</a>
+
+      <div> 
+            Parent 
+            <p>
+                <span> Decedent</span>
+            </p>
+           
+            <span> Child</span>
+      </div>
+      <h1> Another h1</h1>
+      <span>Siblling span</span>
+      
+      <h2>Hello</h1>
+    <div></div>
+      <span>Adjacent</span>
+      <table border="1">
+        <colgroup>
+          <col span="2" />
+          <col class="selected" />
+        </colgroup>
+        <tbody>
+          <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+          </tr>
+      
+          <tr>
+            <td colspan="2">D</td>
+            <td>E</td>
+          </tr>
+          <tr>
+            <td>F</td>
+            <td colspan="2">G</td>
+          </tr>
+        </tbody>
+      </table>
+    </body>
+    <script>
+        let btnPayment = document.getElementById('btnPayment');
+        console.log('Payment button ',btnPayment);
+
+        let element = document.querySelector("#btnPayment");
+        console.log('Element ',element);
+
+        let headers = document.querySelectorAll('h1');
+        console.log('Headers ',headers);
+
+        console.log('All ', document.querySelectorAll('*'));
+        console.log('Class ', document.querySelectorAll('.my_class'));
+        console.log('Class div.my_class', document.querySelectorAll('div.my_class'));
+        console.log('a[title] ', document.querySelectorAll('a[title]'));
+        console.log('div[class*="my"] ', document.querySelectorAll('div[class*="my"]'));
+
+        console.log('div,h1 ', document.querySelectorAll('div,h1'));
+        console.log('div span ', document.querySelectorAll('div span'));
+        console.log('div>span ', document.querySelectorAll('div>span'));
+        console.log('div+span ', document.querySelectorAll('div+span'));
+    </script>
+    
+</html>

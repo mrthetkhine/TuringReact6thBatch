@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <style>
+            
+            
+        </style>
+    </head>
+    <body>
+        <div id="container">Hello</div>
+        <div id="container2">World</div>
+    </body>
+    <script>
+      
+        let container = document.getElementById('container');
+        /*
+        container.style.color = 'red';
+        container.style.fontFamily = "Georgia";
+        */
+       let cssText = `color:red;font-size:18pt;font-family:Georgia`;
+       container.setAttribute('style',cssText);
+    </script>
+    
+</html>

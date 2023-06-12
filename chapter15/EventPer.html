@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <style>
+            
+            
+        </style>
+    </head>
+    <body>
+        <div id="container">Hello</div>
+        <div id="container2">World</div>
+    </body>
+    <script>
+ 
+        let container = document.getElementById('container');
+        let arr = [];
+
+        for(let i=0;i< 10000;i++)
+        {
+            let node = document.createElement('div');
+            node.innerText = "Another "+i;
+            /*
+            node.addEventListener('click',(event)=>{
+                console.log('Node click ',event.target);
+            });*/
+            container.append(node);
+        }
+        
+        container.addEventListener('click',(event)=>{
+                console.log('Node click ',event.target);
+        });
+        
+        //container.append(node);
+        //container.prepend(node);
+        //container.before(node);
+        //container.after(node);
+        //container.replaceWith(node);
+    </script>
+    
+</html>

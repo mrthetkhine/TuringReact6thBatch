@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <style>
+            
+          
+        </style>
+    </head>
+    <body>
+       <input name="color"/>
+       <button class="my_class" type="button" name="color">Button</button> 
+       <div class="my_class">
+        Someone
+       </div>
+       <div> Another</div>
+    </body>
+    <script>
+        console.log('Element by name ',document.getElementsByName('color'));
+        console.log('Element by tagName ',document.getElementsByTagName('div'));
+
+        /*
+        for(let i=0;i< document.getElementsByTagName('div').length;i++)
+        {
+            let element = document.createElement("div");
+            element.textContent = "Test "+i;
+            document.body.append(element);
+        }
+        */
+        for(let i=0,len = document.getElementsByTagName('div').length;  i< len;i++)
+        {
+            let element = document.createElement("div");
+            element.textContent = "Test "+i;
+            document.body.append(element);
+        }
+        console.log("Class name ", document.getElementsByClassName("my_class"));
+       
+    </script>
+    
+</html>

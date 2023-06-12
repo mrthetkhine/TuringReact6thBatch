@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <style>
+            
+            
+        </style>
+    </head>
+    <body>
+        <div id="container">Hello</div>
+        <div id="container2">World</div>
+    </body>
+    <script>
+        //document.getElementById('container').textContent  = "JavaScript";
+        //document.getElementById('container').innerText  = "JavaScript";
+        //document.getElementById('container').innerHTML  = "<h1>JavaScript</h1>";
+        //document.getElementById('container').outerText  = "<h1>JavaScript</h1>"
+        //document.getElementById('container').outerHTML  = "<h1>JavaScript</h1>";
+        let container = document.getElementById('container');
+        
+        let node = document.createElement('div');
+        node.innerText = "Another";
+
+        //container.append(node);
+        //container.prepend(node);
+        //container.before(node);
+        //container.after(node);
+        container.replaceWith(node);
+    </script>
+    
+</html>
