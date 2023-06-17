@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <script>
+
+   let woker1 = new Worker('worker.js');
+   woker1.postMessage(['Hello from browser']);
+   woker1.addEventListener('message',event=>{
+    console.log("Message received from main ",event.data);
+   });
+   
+   
+   let woker2 = new Worker('fworker.js');
+   woker2.postMessage(6);
+   woker2.addEventListener('message',event=>{
+    console.log("Message received from factorial  ",event.data);
+   });
+   woker2.addEventListener('error',(event)=>{
+    console.log('Error ',event);
+  });
+  </script>
+</head>
+</html>

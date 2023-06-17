@@ -1,0 +1,61 @@
+<html>
+    <head>
+       
+    </head>
+    <body>
+        <div id="container" class="transparent">Hello</div>
+        <button type="button" id="btnAppend">Append</button>
+        <table id="producttable" border="1">
+            <thead>
+              <tr>
+                <td>UPC_Code</td>
+                <td>Product_Name</td>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- existing data could optionally be included here -->
+            </tbody>
+          </table>
+          
+          <template id="productrow">
+            <tr>
+              <td class="record"></td>
+              <td></td>
+            </tr>
+          </template>
+    </body>
+    <script>
+      let str =`
+      <tr>
+        <td class="record"></td>
+              <td></td>
+        </tr>
+      `;
+      document.getElementById('btnAppend').addEventListener("click",()=>{
+        if ("content" in document.createElement("template")) {
+        // Instantiate the table with the existing HTML tbody
+        // and the row with the template
+        const tbody = document.querySelector("tbody");
+        const template = document.querySelector("#productrow");
+
+        // Clone the new row and insert it into the table
+        const clone = template.content.cloneNode(true);
+        let td = clone.querySelectorAll("td");
+        td[0].textContent = "1235646565";
+        td[1].textContent = "Stuff";
+
+        tbody.appendChild(clone);
+
+        // Clone the new row and insert it into the table
+        const clone2 = template.content.cloneNode(true);
+        td = clone2.querySelectorAll("td");
+        td[0].textContent = "0384928528";
+        td[1].textContent = "Acme Kidney Beans 2";
+
+        tbody.appendChild(clone2);
+        } 
+      });
+      
+    </script>
+    
+</html>

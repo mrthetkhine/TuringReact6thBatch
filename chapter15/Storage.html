@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <style>
+            .transparent { opacity: 0; }
+            .fadeable { transition: opacity 1s ease-in }
+            .long{
+                height: 2000;
+            }
+        </style>
+    </head>
+    <body>
+       
+    </body>
+    <script>
+      let name = localStorage.username;
+      if(!name)
+      {
+         name = prompt('Enter name');
+         localStorage.username = name; 
+      }
+      if(localStorage.user)
+      {
+        let data = localStorage.user;
+        console.log('type ',typeof data);
+      }
+      let obj = {
+        name : "TK",
+        age : 38,
+      };
+      localStorage.user = JSON.stringify(obj);
+      window.addEventListener('storage',(event)=>{
+        console.log('Stroage event ',event);
+      });
+    </script>
+    
+</html>

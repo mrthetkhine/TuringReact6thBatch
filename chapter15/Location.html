@@ -1,0 +1,32 @@
+<html>
+    <head>
+       <style>
+        .long
+        {
+            height:2000;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="container" class="transparent">GHello</div>
+        <button type="button" id="btnGo">Go</button>
+        <button type="button" id="btnBack">Go back</button>
+       <div class="long">
+            Long
+       </div>
+       <a href="#end">End</a>
+    </body>
+    <script>
+      console.log('Window loca',window.location);
+      document.getElementById('btnGo').addEventListener("click",()=>{
+        document.location.hash = "end";
+      });
+      document.getElementById('btnBack').addEventListener('click',()=>{
+        history.go(-1);
+      });
+      window.addEventListener('hashchange',(eve)=>{
+        console.log('Hashchange ',eve);
+      });
+    </script>
+    
+</html>

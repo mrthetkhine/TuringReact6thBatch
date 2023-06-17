@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <style>
+            .transparent { opacity: 0; }
+            .fadeable { transition: opacity 1s ease-in }
+            .long{
+                height: 2000;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container" class="transparent">Hello</div>
+     
+        <button id="btnAnimate" type="button">Animate</button>
+        <div>One </div>
+        <div> Two</div>
+        <div class="long">
+            Middle container2
+        </div>
+        End
+        <button id="btnUp" type="button">Up</button>
+    </body>
+    <script>
+      
+        let container = document.getElementById('container');
+        document.getElementById("btnAnimate").addEventListener("click",()=>{
+            container.classList.remove('transparent');
+            container.classList.add('fadeable');
+        });
+
+        document.body.addEventListener("click",(event)=>{
+            let element = document.elementFromPoint(event.clientX,event.clientY);
+            console.log('Element from point ',element);
+            console.log('bounding client rect ',element.getBoundingClientRect());
+        });
+        document.getElementById('btnUp').addEventListener("click",()=>{
+            //window.scrollTo(0,0);
+            setInterval(()=>{
+                scrollBy(0,-100);
+                console.log('Scroll');
+            },100);
+        });
+    </script>
+    
+</html>
