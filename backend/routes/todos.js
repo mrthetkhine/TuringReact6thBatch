@@ -1,47 +1,53 @@
 var express = require('express');
+const path = require('path');
+const todos = require("../controller/TodoController");
 var router = express.Router();
-let todos =[
 
-        {
-            "userId": 1,
-            "id": 1,
-            "title": "delectus aut autem",
-            "completed": false
-        },
-        {
-            "userId": 1,
-            "id": 2,
-            "title": "quis ut nam facilis et officia qui",
-            "completed": false
-        },
-        {
-            "userId": 1,
-            "id": 3,
-            "title": "fugiat veniam minus",
-            "completed": false
-        },
-        {
-            "userId": 1,
-            "id": 4,
-            "title": "et porro tempora",
-            "completed": true
-        },
-        {
-            "userId": 1,
-            "id": 5,
-            "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-            "completed": false
-        },
-        {
-            "userId": 1,
-            "id": 6,
-            "title": "qui ullam ratione quibusdam voluptatem quia omnis",
-            "completed": false
-        },
-];
-router.get('/',(req,res,next)=>{
-    console.log('todos /');
-    res.json(todos);
+
+router.get('/',todos.getAllTodos);
+router.get('/download',(req,res,next)=>{
+    res.download('./public/data.txt');
+});
+router.get('/link',(req,res,next)=>{
+    res.links({
+        next: 'http://api.example.com/users?page=2',
+        last: 'http://api.example.com/users?page=5'
+    })
+    res.end();
+});
+router.get('/location',(req,res,next)=>{
+    res.location('http://example.com');
+    res.json({
+        message : 'location in  header'
+    });
+    res.end();
+});
+router.get('/admin',(req,res,next)=>{
+    res.redirect('./../../');
+});
+router.get('/end',(req,res,next)=>{
+    res.send('end method');
+    res.end();
+});
+router.get('/custom-header',(req,res,next)=>{
+    res.set('Content-Type','text/html');
+    res.set('Custom','Some-value');
+    res.send('<h1>Hello</h1>');
+
+});
+router.get('/send',(req,res,next)=>{
+    var options = {
+        root: path.join(__dirname, 'public'),
+        dotfiles: 'deny',
+        headers: {
+            'x-timestamp': Date.now(),
+            'x-sent': true
+        }
+    }
+    res.sendFile('./../data.txt',options,(err)=>{
+        console.log(err);
+        if(err)next();
+    });
 });
 router.get('/:todoId',(req,res,next)=>{
     console.log('todos / ',req.params);
