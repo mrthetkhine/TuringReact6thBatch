@@ -1,0 +1,80 @@
+mongosh
+
+//chage db
+use react_6th_batch_test;
+
+//get all collections
+show collections;
+
+db.todo.insertOne({
+    "userId": 1,
+    "title": "Todo 1",
+    "completed": false
+});
+
+db.user.insertOne({
+    "name": "TK",
+    "age": 38
+});
+
+db.todo.insertOne({
+    "userId": 1,
+    "title": "Todo 1",
+    "completed": false,
+    "another":"example"
+});
+
+db.user.insertOne({
+    "name": "Another",
+    "age": 38,
+    "address":{
+        "city":"Ygn",
+        "township":"somewhere"
+    }
+});
+
+db.todo.find();
+
+db.todo.insertMany([
+    {
+    "userId": 1,
+    "title": "Todo 2",
+    "completed": false,
+    },
+    {
+    "userId": 1,
+    "title": "Todo 3",
+    "completed": true,
+    }
+]);
+
+//Query 
+db.todo.find({'title':"Todo 1"});
+db.todo.find({_id:ObjectId('649999abb4230e9e592584c2')});
+
+db.todo.find({'completed':true});
+db.todo.find({ title:{$in:["Todo 1","Todo 2"]}})
+
+//AND
+db.todo.find({ title:"Todo 1","another":"example"});
+db.todo.find({ $or: [ { title: "Todo 1" }, { completed: false } ] });
+db.todo.find({ $or: [ { title: "Todo 1" }, { completed: true } ] });
+
+
+db.user.find({name :"TK", $or:[{age:38},{age:20}]});
+db.user.find({age:{$gte:20}});
+
+db.todo.find({title:{ $regex:'^Todo'}})
+
+db.user.find({"address.city":"Ygn"});
+
+db.inventory.find( { tags: ["red", "blank"] } )
+
+db.inventory.find( { tags: { $all: ["red", "blank"] } } )
+db.inventory.find( { tags: "red" } )
+
+db.inventory.find( { dim_cm: { $gt: 15, $lt: 20 } } )
+db.inventory.find( { dim_cm: { $elemMatch: { $gt: 22, $lt: 30 } } } )
+
+db.inventory.find( { "dim_cm.1": { $gt: 25 } } )
+db.inventory.find( { "tags": { $size: 3 } } )
