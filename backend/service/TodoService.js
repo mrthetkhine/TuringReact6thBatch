@@ -1,47 +1,41 @@
-let todos =[
-
-   {
-      "userId": 1,
-      "id": 1,
-      "title": "delectus aut autem",
-      "completed": false
-   },
-   {
-      "userId": 1,
-      "id": 2,
-      "title": "quis ut nam facilis et officia qui",
-      "completed": false
-   },
-   {
-      "userId": 1,
-      "id": 3,
-      "title": "fugiat veniam minus",
-      "completed": false
-   },
-   {
-      "userId": 1,
-      "id": 4,
-      "title": "et porro tempora",
-      "completed": true
-   },
-   {
-      "userId": 1,
-      "id": 5,
-      "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-      "completed": false
-   },
-   {
-      "userId": 1,
-      "id": 6,
-      "title": "qui ullam ratione quibusdam voluptatem quia omnis",
-      "completed": false
-   },
-];
-
-function getAllTodos()
+let Todos = require('../model/ToDo');
+async function getAllToDos()
 {
-   return todos;
+    return Todos.find();
+}
+async function getToDoById(id)
+{
+    let todo = await Todos.findById(id);
+    console.log('get Todo by id ',todo);
+    return todo;
+}
+async function getAllCompletedToDos()
+{
+    let todos = await Todos.find({
+        completed:true
+    });
+    return todos;
+}
+async function saveTodo(todo)
+{
+    let newToDo = new Todos(todo);
+    return newToDo.save();
+}
+async function updateTodo(todoId,todo)
+{
+    let updateTodo = await Todos.findByIdAndUpdate(todoId,todo,{new:true});
+    return updateTodo;
+}
+async function deleteTodo(todoId)
+{
+    let deletedTodo = await Todos.findByIdAndDelete(todoId);
+    return deletedTodo;
 }
 module.exports = {
-   getAllTodos,
+    getToDoById,
+    getAllToDos,
+    saveTodo,
+    updateTodo,
+    deleteTodo,
+    getAllCompletedToDos,
 }

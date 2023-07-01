@@ -5,6 +5,12 @@ var router = express.Router();
 
 
 router.get('/',todos.getAllTodos);
+router.get('/completed',todos.getAllCompletedToDos);
+router.get('/:id',todos.getTodoById);
+router.post('/',todos.createTodo);
+router.put('/:id',todos.updateTodo);
+router.delete('/:id',todos.deleteTodo);
+/*
 router.get('/download',(req,res,next)=>{
     res.download('./public/data.txt');
 });
@@ -63,4 +69,6 @@ router.get('/example/b', (req, res, next) => {
     console.log('Another route ...');
     res.send('Hello from B!');
 });
+
+ */
 module.exports = router;
