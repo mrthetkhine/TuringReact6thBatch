@@ -8,11 +8,12 @@ const mongoose = require('mongoose');
 const { db } = require('./config/database');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+//var usersRouter = require('./routes/users');
 let customRouter = require('./routes/customs');
 let todoRouter = require('./routes/todos');
 let movieRouter = require('./routes/movies');
 let reviewRouter = require('./routes/reviews');
+let userRouter = require('./routes/users');
 var app = express();
 
 // view engine setup
@@ -35,7 +36,7 @@ mongoose.connect(db, {
     .catch(err => console.log(err));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/users', userRouter);
 app.use('/api/customs', customRouter);
 app.use('/api/todos', todoRouter);
 app.use('/api/movies', movieRouter);
