@@ -6,7 +6,7 @@ var logger = require('morgan');
 var logMiddleware = require('./middleware/logger');
 const mongoose = require('mongoose');
 const { db } = require('./config/database');
-
+let auth = require('./middleware/auth');
 var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
 let customRouter = require('./routes/customs');
@@ -39,8 +39,8 @@ app.use('/', indexRouter);
 app.use('/api/users', userRouter);
 app.use('/api/customs', customRouter);
 app.use('/api/todos', todoRouter);
-app.use('/api/movies', movieRouter);
-app.use('/api/reviews', reviewRouter);
+app.use('/api/movies',auth.verifyUserToken, movieRouter);
+app.use('/api/reviews', auth.verifyUserToken,reviewRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
