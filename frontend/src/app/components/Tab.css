@@ -1,0 +1,17 @@
+.tab-header
+{
+    width:100px;
+    display: inline-block;
+    border-bottom: 1px solid gray;
+    margin-right: 3px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+.tab-page
+{
+    height:200px;
+    border:1px solid gray;
+    padding: 10px;
+    border-radius: 10px;
+}
