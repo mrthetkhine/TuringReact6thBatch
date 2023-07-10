@@ -1,0 +1,9 @@
+.counter
+{
+    border-radius: 10px;
+    min-height: 100px;
+    max-width: 100px;
+    border: 1px solid gray;
+    text-align: center;
+    display: inline-block;
+}

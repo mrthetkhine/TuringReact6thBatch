@@ -13,6 +13,8 @@ import SpecificCounter from "./components/SpecificCounter";
 import Clock from "./components/Clock";
 import ToDoListUI from "./components/ToDoListUI";
 import Tab from "./components/Tab";
+import ResetCounter from "./components/ResetCounter";
+import CounterReducer from "./components/reducer/CounterReducer";
 export default function Home() {
     const items = ["one","two","three"];
   return (
@@ -35,7 +37,7 @@ export default function Home() {
        {/*  <ListDynamic/>*/}
         {/*  <SpecificCounter />*/}
          {/* <ToDoListUI/>*/}
-          <Tab headers={["Tab1","Tab2","Tab3"]}>
+         {/* <Tab headers={["Tab1","Tab2","Tab3"]}>
               <div>
                   Page 1
               </div>
@@ -45,7 +47,9 @@ export default function Home() {
               <div>
                   Page 3
               </div>
-          </Tab>
+          </Tab>*/}
+         {/* <ResetCounter/>*/}
+          <CounterReducer/>
       </div>
     </main>
   )
