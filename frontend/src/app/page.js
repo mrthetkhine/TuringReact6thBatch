@@ -1,5 +1,6 @@
 import Image from 'next/image'
 //import styles from './page.module.css'
+import 'bootstrap/dist/css/bootstrap.css';
 import HelloWorld,{Another} from "./components/HelloWorld";
 import JsxExample from "./components/JsxExample";
 import Avatar from "./components/Avatar";
@@ -15,6 +16,11 @@ import ToDoListUI from "./components/ToDoListUI";
 import Tab from "./components/Tab";
 import ResetCounter from "./components/ResetCounter";
 import CounterReducer from "./components/reducer/CounterReducer";
+import TodoListWithReducer from "./components/reducer/TodoListWithReducer";
+import ToDoListWithReducerTwo, {TodoInput} from "./components/reducer/ToDoListWithReducerTwo";
+import ReuseComponent from "./components/reducer/ReuseComponent";
+import ContextDemo from "./components/context/ContextDemo";
+import ScalingWithContext from "./components/context/ScalingWithContext";
 export default function Home() {
     const items = ["one","two","three"];
   return (
@@ -49,7 +55,12 @@ export default function Home() {
               </div>
           </Tab>*/}
          {/* <ResetCounter/>*/}
-          <CounterReducer/>
+        {/*  <CounterReducer/>*/}
+      {/*    <TodoListWithReducer/>*/}
+        {/* <ToDoListWithReducerTwo/>
+          <ReuseComponent/>*/}
+        {/*  <ContextDemo/>*/}
+          <ScalingWithContext/>
       </div>
     </main>
   )
