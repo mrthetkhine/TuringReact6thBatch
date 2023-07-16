@@ -127,10 +127,22 @@ function TodoInput({dispatch,editTodo,clearEdit}) {
         </form>
     </div>;
 }
-
+function useCustomReducer(reducer,initialState)
+{
+    const [state,setState] = useState(initialState);
+    function dispatch(action)
+    {
+        //console.log('Action ',action);
+        const nextState = reducer(state,action);
+        //console.log('NextState ',nextState);
+        setState(nextState);
+    }
+    return [state,dispatch];
+}
 export default function TodoListWithReducer()
 {
-    const [todos,dispatch] = useReducer(todoReducer,initialState);
+    //const [todos,dispatch] = useReducer(todoReducer,initialState);
+    const [todos,dispatch] = useCustomReducer(todoReducer,initialState);
     const [editTodo,setEditToDo] = useState(null);
 
     const editHandler = (todo)=>{

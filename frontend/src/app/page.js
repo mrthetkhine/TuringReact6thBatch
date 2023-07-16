@@ -21,6 +21,12 @@ import ToDoListWithReducerTwo, {TodoInput} from "./components/reducer/ToDoListWi
 import ReuseComponent from "./components/reducer/ReuseComponent";
 import ContextDemo from "./components/context/ContextDemo";
 import ScalingWithContext from "./components/context/ScalingWithContext";
+import FormDemo from "./components/form/FormDemo";
+import BasicForm from "./components/form/BasicForm";
+import RenderProperty from "./components/pattern/RenderProperty";
+import AnotherBasicForm from "./components/form/AnotherBasicForm";
+import {ValidationSchemaExample} from "./components/form/ValidationSchemaExample";
+import OurFormik,{InputField} from "./components/form/OurFormik";
 export default function Home() {
     const items = ["one","two","three"];
   return (
@@ -56,11 +62,29 @@ export default function Home() {
           </Tab>*/}
          {/* <ResetCounter/>*/}
         {/*  <CounterReducer/>*/}
-      {/*    <TodoListWithReducer/>*/}
+       {/*   <TodoListWithReducer/>*/}
         {/* <ToDoListWithReducerTwo/>
           <ReuseComponent/>*/}
         {/*  <ContextDemo/>*/}
-          <ScalingWithContext/>
+         {/* <ScalingWithContext/>*/}
+        {/*  <FormDemo/>*/}
+       {/*   <BasicForm/>*/}
+          {/*<RenderProperty>
+              {
+                  ()=><div>Hello Children</div>
+              }
+          </RenderProperty>*/}
+         {/* <AnotherBasicForm/>*/}
+         {/* <ValidationSchemaExample/>*/}
+          <OurFormik initialValues={{
+              username : 'TK',
+              email : 'test@gmail'
+          }}>
+              <InputField name="username"
+                          className={"form-control"}/>
+              <InputField name="email"
+                          className={"form-control"}/>
+          </OurFormik>
       </div>
     </main>
   )
