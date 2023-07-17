@@ -27,6 +27,10 @@ import RenderProperty from "./components/pattern/RenderProperty";
 import AnotherBasicForm from "./components/form/AnotherBasicForm";
 import {ValidationSchemaExample} from "./components/form/ValidationSchemaExample";
 import OurFormik,{InputField} from "./components/form/OurFormik";
+import CustomFormikExample from "./components/form/CustomFormikExample";
+import CounterWithRef from "./components/CounterWithRef";
+import Stopwatch from "./components/StopWatch";
+import ControlDOM from "./components/ControlDOM";
 export default function Home() {
     const items = ["one","two","three"];
   return (
@@ -76,15 +80,24 @@ export default function Home() {
           </RenderProperty>*/}
          {/* <AnotherBasicForm/>*/}
          {/* <ValidationSchemaExample/>*/}
-          <OurFormik initialValues={{
-              username : 'TK',
-              email : 'test@gmail'
+       {/* <CustomFormikExample/>*/}
+          {/*<OurFormik initialValues={{
+              username : 'TK2',
+              email : 'test2@gmail'
           }}>
-              <InputField name="username"
+              <label htmlFor={"username"}>User Name</label>
+              <InputField id={"username"}
+                          name="username"
                           className={"form-control"}/>
+              <label>Email</label>
               <InputField name="email"
                           className={"form-control"}/>
-          </OurFormik>
+              <button type={"submit"}
+                      className={"btn btn-primary"}> Submit</button>
+          </OurFormik>*/}
+        {/*  <CounterWithRef/>*/}
+         {/* <Stopwatch/>*/}
+          <ControlDOM/>
       </div>
     </main>
   )
