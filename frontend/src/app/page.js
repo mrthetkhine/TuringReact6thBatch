@@ -31,6 +31,14 @@ import CustomFormikExample from "./components/form/CustomFormikExample";
 import CounterWithRef from "./components/CounterWithRef";
 import Stopwatch from "./components/StopWatch";
 import ControlDOM from "./components/ControlDOM";
+import DatePicker from "./components/DatePicker";
+import EffectDemo from "./components/hook/EffectDemo";
+import TodoWithEffect from "./components/hook/TodoWithEffect";
+import EffectDependency from "./components/hook/EffectDependency";
+import OldSchool from "./components/class_component/OldSchool";
+import HookDemo from "./components/hook/HookDemo";
+import Unique from "./components/hook/Unique";
+import CallBackHookDemo from "./components/hook/CallBackHookDemo";
 export default function Home() {
     const items = ["one","two","three"];
   return (
@@ -97,7 +105,15 @@ export default function Home() {
           </OurFormik>*/}
         {/*  <CounterWithRef/>*/}
          {/* <Stopwatch/>*/}
-          <ControlDOM/>
+        {/*  <ControlDOM/>*/}
+         {/* <DatePicker/>*/}
+        {/*  <EffectDemo/>*/}
+        {/*  <TodoWithEffect/>*/}
+          {/*<EffectDependency/>
+          <OldSchool/>*/}
+        {/*  <HookDemo/>*/}
+        {/*  <Unique/>*/}
+          <CallBackHookDemo/>
       </div>
     </main>
   )
