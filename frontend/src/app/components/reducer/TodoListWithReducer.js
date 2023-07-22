@@ -1,5 +1,5 @@
 'use client';
-import {useReducer, useState,useEffect} from "react";
+import {useReducer, useState, useEffect, useDebugValue} from "react";
 function unique()
 {
     let id = 3;
@@ -127,17 +127,18 @@ function TodoInput({dispatch,editTodo,clearEdit}) {
         </form>
     </div>;
 }
-function useCustomReducer(reducer,initialState)
-{
-    const [state,setState] = useState(initialState);
-    function dispatch(action)
-    {
+function useCustomReducer(reducer,initialState) {
+    useDebugValue("CustomName");
+    const [state, setState] = useState(initialState);
+
+    function dispatch(action) {
         //console.log('Action ',action);
-        const nextState = reducer(state,action);
+        const nextState = reducer(state, action);
         //console.log('NextState ',nextState);
         setState(nextState);
     }
-    return [state,dispatch];
+
+    return [state, dispatch];
 }
 export default function TodoListWithReducer()
 {

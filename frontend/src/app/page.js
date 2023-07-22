@@ -39,6 +39,11 @@ import OldSchool from "./components/class_component/OldSchool";
 import HookDemo from "./components/hook/HookDemo";
 import Unique from "./components/hook/Unique";
 import CallBackHookDemo from "./components/hook/CallBackHookDemo";
+import DeferedComponent from "./components/hook/DeferedComponent";
+import MemoHookDemo from "./components/hook/MemoHookDemo";
+import ForwardRefDemo from "./components/hook/ForwardRefDemo";
+import ImperativeHandleDemo from "./components/hook/ImperativeHandleDemo";
+import LayoutEffectDemo from "./components/hook/LayoutEffectDemo";
 export default function Home() {
     const items = ["one","two","three"];
   return (
@@ -74,7 +79,7 @@ export default function Home() {
           </Tab>*/}
          {/* <ResetCounter/>*/}
         {/*  <CounterReducer/>*/}
-       {/*   <TodoListWithReducer/>*/}
+         {/* <TodoListWithReducer/>*/}
         {/* <ToDoListWithReducerTwo/>
           <ReuseComponent/>*/}
         {/*  <ContextDemo/>*/}
@@ -113,7 +118,12 @@ export default function Home() {
           <OldSchool/>*/}
         {/*  <HookDemo/>*/}
         {/*  <Unique/>*/}
-          <CallBackHookDemo/>
+          {/*<CallBackHookDemo/>*/}
+         {/* <DeferedComponent/>*/}
+          {/*<MemoHookDemo/>*/}
+          {/*<ForwardRefDemo/>
+          <ImperativeHandleDemo/>*/}
+          <LayoutEffectDemo/>
       </div>
     </main>
   )
