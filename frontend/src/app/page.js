@@ -44,6 +44,14 @@ import MemoHookDemo from "./components/hook/MemoHookDemo";
 import ForwardRefDemo from "./components/hook/ForwardRefDemo";
 import ImperativeHandleDemo from "./components/hook/ImperativeHandleDemo";
 import LayoutEffectDemo from "./components/hook/LayoutEffectDemo";
+import PortalDemo from "./components/PortalDemo";
+import TodosApp from "./components/hook/external_storage/TodoApp";
+import Welcome from "./components/class_component/Welcome";
+import OldSchoolCounter from "./components/class_component/OldSchoolCounter";
+import UnmountDemo from "./components/class_component/UnmountDemo";
+import ConditionalRender from "./components/class_component/ConditionalRender";
+import TableDemo from "./components/TableDemo";
+import ProblemComponent from "./components/ProblemComponent";
 export default function Home() {
     const items = ["one","two","three"];
   return (
@@ -115,7 +123,7 @@ export default function Home() {
         {/*  <EffectDemo/>*/}
         {/*  <TodoWithEffect/>*/}
           {/*<EffectDependency/>
-          <OldSchool/>*/}
+       */}
         {/*  <HookDemo/>*/}
         {/*  <Unique/>*/}
           {/*<CallBackHookDemo/>*/}
@@ -123,7 +131,16 @@ export default function Home() {
           {/*<MemoHookDemo/>*/}
           {/*<ForwardRefDemo/>
           <ImperativeHandleDemo/>*/}
-          <LayoutEffectDemo/>
+        {/*  <LayoutEffectDemo/>*/}
+         {/* <PortalDemo/>*/}
+         {/* <TodosApp/>*/}
+        {/*  <OldSchool/>*/}
+          <Welcome message={"Hello from class component"}/>
+          {/*<OldSchoolCounter/>*/}
+          {/*<UnmountDemo/>*/}
+         {/* <ConditionalRender/>*/}
+          {/*<TableDemo/>*/}
+        {/*  <ProblemComponent/>*/}
       </div>
     </main>
   )
