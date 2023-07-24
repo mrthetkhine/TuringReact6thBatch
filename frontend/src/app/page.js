@@ -52,6 +52,10 @@ import UnmountDemo from "./components/class_component/UnmountDemo";
 import ConditionalRender from "./components/class_component/ConditionalRender";
 import TableDemo from "./components/TableDemo";
 import ProblemComponent from "./components/ProblemComponent";
+import HocDemo from "./components/pattern/hoc/HocDemo";
+import LoadingHocDemo from "./components/pattern/hoc/LoadingHocDemo";
+import RenderContainer from "./components/pattern/render_property/RenderContainer";
+import RenderPropertyDemo from "./components/pattern/render_property/RenderPropertyDemo";
 export default function Home() {
     const items = ["one","two","three"];
   return (
@@ -135,12 +139,15 @@ export default function Home() {
          {/* <PortalDemo/>*/}
          {/* <TodosApp/>*/}
         {/*  <OldSchool/>*/}
-          <Welcome message={"Hello from class component"}/>
+        {/*  <Welcome message={"Hello from class component"}/>*/}
           {/*<OldSchoolCounter/>*/}
           {/*<UnmountDemo/>*/}
          {/* <ConditionalRender/>*/}
           {/*<TableDemo/>*/}
         {/*  <ProblemComponent/>*/}
+         {/* <HocDemo/>*/}
+         {/* <LoadingHocDemo/>*/}
+          <RenderPropertyDemo/>
       </div>
     </main>
   )

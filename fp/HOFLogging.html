@@ -1,0 +1,29 @@
+<html>
+   <body>
+   
+   </body>
+    <script>
+       function hello()
+       {
+        console.log("Hello");
+       }
+       function display()
+       {
+        console.log("display");
+       }
+       function logger(fun)
+       {
+        return function()
+        {
+            console.log(fun.name+' was called ');
+            fun();
+        }
+       }
+       let newHello = logger(hello);
+       newHello();
+
+       let newDisplay = logger(display);
+       newDisplay();
+    </script>
+   
+</html>
