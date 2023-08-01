@@ -1,1 +1,11 @@
 npx create-next-app --example with-redux --branch canary with-redux-app
+
+backendApiCall
+    fetchAllTodos
+wrap with createAppAsyncThunk
+    loadAllTodo
+addd extraReducer in slice
+    loadAllTodo.pending
+    loadAllTodo.fullfilled
+dispatch(thunkFunction());
+dispatch(loadAllTodo());

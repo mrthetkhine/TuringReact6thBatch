@@ -1,2 +1,4 @@
 export * from './todoSlice';
-export * from './selectors'
+export * from './thunks';
+export * from './selectors';
+

@@ -11,7 +11,7 @@ export default function IndexPage() {
     {/*<HelloWorld message={"how are you"}/>*/}
    {/* <TodoListView/>*/}
     {/*<CounterWithState/>*/}
-    {/*<Counter />*/}
+{/*    <Counter />*/}
     <TodoWithRedux/>
   </div>)
 }

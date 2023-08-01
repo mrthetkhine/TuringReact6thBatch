@@ -30,6 +30,7 @@ function TodoUI(props:{
             Delete</button>
     </div>)
 }
+
 export default function TodoListView()
 {
     const editHandler = (todo:TodoModel)=>{
@@ -39,7 +40,8 @@ export default function TodoListView()
         console.log('Delete todo ',todo);
     }
     return (<div>
-        Todolist
+
+
         {
             todos.map((todo,index)=>
                     <TodoUI
