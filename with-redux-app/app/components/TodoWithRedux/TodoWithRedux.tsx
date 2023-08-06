@@ -46,7 +46,8 @@ function TodoInput(prop: {
 
 function TodoUI(props: {
     todo: Todo,
-    deleteTodo: (todo: Todo) => void
+    deleteTodo: (todo: Todo) => void,
+    updateTodo: (todo:Todo)=>void,
 }) {
     const [editMode,setEditMode] = useState(false);
     const [todoTitle,setTodoTitle] = useState(props.todo.title);
@@ -65,6 +66,7 @@ function TodoUI(props: {
                 title: todoTitle
             };
             console.log('Update todo ',updateTodo);
+            props.updateTodo(updateTodo);
         }
     }
     return <div>
@@ -96,7 +98,10 @@ export default function TodoWithRedux()
     const todos = useSelector(selectTodo);
     useEffect(()=>{
         console.log('Call API ');
-        dispatch(loadAllTodo());
+        dispatch(loadAllTodo())
+            .unwrap()
+            .then(data=>console.log('Response from thunk ',data));
+
     },[])
 
     const addTodoHandler = (todo)=>{
@@ -106,6 +111,9 @@ export default function TodoWithRedux()
     const deleteTodoHandler = (todo:Todo)=>{
         dispatch(todoSlice.actions.deleteTodo(todo));
     }
+    const updateToDoHandler = (todo:Todo)=>{
+        dispatch(todoSlice.actions.updateTodo(todo));
+    };
     return (<div>
 
         <TodoInput addTodo={addTodoHandler}/>
@@ -113,6 +121,7 @@ export default function TodoWithRedux()
             todos.map( todo=> <TodoUI
                 key={todo!.id}
                 todo={todo}
+                updateTodo = {updateToDoHandler}
                 deleteTodo={deleteTodoHandler}/>
             )
         }

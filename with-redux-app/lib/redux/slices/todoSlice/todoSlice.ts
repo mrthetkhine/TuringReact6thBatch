@@ -1,9 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import Todo from "@/lib/redux/slices/todoSlice/Todo";
 import {loadAllTodo} from "@/lib/redux/slices/todoSlice/thunks";
-import {stat} from "fs";
-
-;
 
 export interface TodoSliceState {
     todos:Todo[],
@@ -22,6 +19,12 @@ const initialState : TodoSliceState = {
         },
     ]
 }
+
+function updateToDo<State>(state: State extends PrimitiveType ? State : (State extends AtomicObject ? State : (State extends IfAvailable<ReadonlyMap<infer K, infer V>> ? Map<Draft<K>, Draft<V>> : (State extends IfAvailable<ReadonlySet<infer V>> ? Set<Draft<V>> : (State extends WeakReferences ? State : (State extends object ? WritableDraft<State> : State))))), action: PayloadAction<Todo>) {
+    state.todos = state.todos.map(todo => todo.id == action.payload.id ?
+        action.payload : todo);
+}
+
 //console.log('loadAllTodo ',loadAllTodo);
 export const todoSlice = createSlice({
     name : 'todo',
@@ -34,8 +37,7 @@ export const todoSlice = createSlice({
             state.todos = state.todos.filter(todo=> todo.id != action.payload.id);
         },
         updateTodo:(state,action:PayloadAction<Todo>)=> {
-            state.todos = state.todos.map(todo=> todo.id == action.payload.id?
-                                                action.payload: todo);
+            updateToDo(state, action);
         },
     },
     extraReducers: (builder) => {
