@@ -20,7 +20,7 @@ export default function RootLayout(props: React.PropsWithChildren) {
 
             <main className={styles.main}>{props.children}</main>
 
-            <footer className={styles.footer}>
+            {/*<footer className={styles.footer}>
               <span>Learn </span>
               <a
                 className={styles.link}
@@ -57,7 +57,7 @@ export default function RootLayout(props: React.PropsWithChildren) {
               >
                 React Redux
               </a>
-            </footer>
+            </footer>*/}
           </section>
         </body>
       </html>

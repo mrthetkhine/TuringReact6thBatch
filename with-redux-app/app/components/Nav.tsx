@@ -18,6 +18,14 @@ export const Nav = () => {
       >
         Home
       </Link>
+        <Link
+            className={`${styles.link} ${
+                pathname === '/dashboard' ? styles.active : ''
+            }`}
+            href="/main/dashboard"
+        >
+            Dashboard
+        </Link>
       <Link
         className={`${styles.link} ${
           pathname === '/verify' ? styles.active : ''
