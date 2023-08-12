@@ -8,8 +8,8 @@ import { usePathname } from 'next/navigation'
 import styles from '../styles/layout.module.css'
 
 export const Nav = () => {
-  const pathname = usePathname()
-
+  const pathname = usePathname();
+  console.log('Pathname  ',pathname);
   return (
     <nav className={styles.nav}>
       <Link

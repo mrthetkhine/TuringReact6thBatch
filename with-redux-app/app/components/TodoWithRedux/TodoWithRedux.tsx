@@ -12,6 +12,7 @@ import {
 
 } from '@/lib/redux';
 import Todo from "@/lib/redux/slices/todoSlice/Todo";
+import {useRouter} from "next/navigation";
 let id = 3;
 function TodoInput(prop: {
     addTodo: (todo: Todo) => void
@@ -52,6 +53,7 @@ function TodoUI(props: {
     const [editMode,setEditMode] = useState(false);
     const [todoTitle,setTodoTitle] = useState(props.todo.title);
 
+    const router = useRouter();
     const btnDeleteTodoHandler = ()=>{
         console.log('Delete todo  ',props.todo);
         props.deleteTodo(props.todo);
@@ -69,6 +71,10 @@ function TodoUI(props: {
             props.updateTodo(updateTodo);
         }
     }
+    const btnDetailHandler =()=>{
+        console.log('Btn Detail handler');
+        router.push(`/todo/${props.todo.id}`);
+    };
     return <div>
         {
             !editMode?props.todo!.title
@@ -88,6 +94,11 @@ function TodoUI(props: {
                 className={"btn btn-primary"}
                 onClick={btnDeleteTodoHandler}>
             Delete
+        </button>
+        <button type={"button"}
+                className={"btn btn-primary"}
+                onClick={btnDetailHandler}>
+            Details
         </button>
     </div>;
 }
