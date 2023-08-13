@@ -8,12 +8,12 @@ import {
     todoSlice,
     useSelector,
     useDispatch,
-    selectTodo, selectCount, loadAllTodo,
+    selectTodo, selectCount, loadAllTodo, addToDo,
 
 } from '@/lib/redux';
 import Todo from "@/lib/redux/slices/todoSlice/Todo";
 import {useRouter} from "next/navigation";
-let id = 3;
+let id = 8;
 function TodoInput(prop: {
     addTodo: (todo: Todo) => void
 })
@@ -117,7 +117,7 @@ export default function TodoWithRedux()
 
     const addTodoHandler = (todo)=>{
         console.log('Add todo handler ',todo);
-        dispatch(todoSlice.actions.addTodo(todo));
+        dispatch(addToDo(todo));
     };
     const deleteTodoHandler = (todo:Todo)=>{
         dispatch(todoSlice.actions.deleteTodo(todo));

@@ -7,6 +7,7 @@ import TodoListView from "@/app/components/Todo/TodoListView";
 import CounterWithState from "@/app/components/CounterWithState";
 import TodoWithRedux from "@/app/components/TodoWithRedux/TodoWithRedux";
 import Loading from "@/app/loading";
+import PhotoView from "@/app/components/photo/PhotoView";
 
 export default function IndexPage() {
   //throw new Error('Got something bad');
@@ -19,6 +20,7 @@ export default function IndexPage() {
 
     </Suspense>
     <TodoWithRedux/>
+   {/* <PhotoView/>*/}
   </div>)
 }
 

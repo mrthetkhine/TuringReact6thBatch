@@ -9,3 +9,14 @@ addd extraReducer in slice
     loadAllTodo.fullfilled
 dispatch(thunkFunction());
 dispatch(loadAllTodo());
+=============================
+UI Action
+      dispatch(addToDo(todo));
+
+        addToDo->
+            createAppAsyncThunk
+                addTodoApi
+                    http://localhost:3000/api/todos
+                        api/route.ts->POST
+        extraReducer
+            addTodoApi.fullfilled
