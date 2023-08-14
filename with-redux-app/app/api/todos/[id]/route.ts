@@ -11,3 +11,14 @@ export async function GET(
         title : 'Dummy'
     });
 }
+export async function DELETE(
+    request: Request,
+    { params }: { params: { id: string } }
+) {
+    const id = params.id;
+    console.log('delete /api/todos/ids ',id);
+    return NextResponse.json({
+        id,
+        title : 'Dummy'
+    });
+}

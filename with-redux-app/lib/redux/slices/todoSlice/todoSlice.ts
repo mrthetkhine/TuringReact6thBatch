@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import Todo from "@/lib/redux/slices/todoSlice/Todo";
-import {addToDo, loadAllTodo} from "@/lib/redux/slices/todoSlice/thunks";
+import {addToDo, deleteToDo, loadAllTodo} from "@/lib/redux/slices/todoSlice/thunks";
 
 export interface TodoSliceState {
     todos:Todo[],
@@ -53,6 +53,10 @@ export const todoSlice = createSlice({
             .addCase(addToDo.fulfilled, (state,action) => {
                 console.log('Extra addToDo reducer fullfilled ',action.payload);
                 state.todos.push( action.payload);
+            })
+            .addCase(deleteToDo.rejected, (state,action) => {
+                console.log('Extra delete todo reducer reject ',action.payload);
+
             })
         ;
 

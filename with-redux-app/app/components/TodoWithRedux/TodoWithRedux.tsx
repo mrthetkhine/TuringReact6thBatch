@@ -8,7 +8,7 @@ import {
     todoSlice,
     useSelector,
     useDispatch,
-    selectTodo, selectCount, loadAllTodo, addToDo,
+    selectTodo, selectCount, loadAllTodo, addToDo, deleteToDo,
 
 } from '@/lib/redux';
 import Todo from "@/lib/redux/slices/todoSlice/Todo";
@@ -114,13 +114,18 @@ export default function TodoWithRedux()
             .then(data=>console.log('Response from thunk ',data));
 
     },[])
-
+   /* useEffect(()=>{
+        fetch('http://localhost:3000/api/todos')
+            .then(resp=>resp.json())
+            .then(json=>console.log('From express',json));
+    },[]);*/
     const addTodoHandler = (todo)=>{
         console.log('Add todo handler ',todo);
         dispatch(addToDo(todo));
     };
     const deleteTodoHandler = (todo:Todo)=>{
-        dispatch(todoSlice.actions.deleteTodo(todo));
+        //dispatch(todoSlice.actions.deleteTodo(todo));
+        dispatch(deleteToDo(todo));
     }
     const updateToDoHandler = (todo:Todo)=>{
         dispatch(todoSlice.actions.updateTodo(todo));

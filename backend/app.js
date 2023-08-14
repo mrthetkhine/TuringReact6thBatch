@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+const cors = require("cors");
 var logger = require('morgan');
 var logMiddleware = require('./middleware/logger');
 const mongoose = require('mongoose');
@@ -14,6 +15,7 @@ let todoRouter = require('./routes/todos');
 let movieRouter = require('./routes/movies');
 let reviewRouter = require('./routes/reviews');
 let userRouter = require('./routes/users');
+
 var app = express();
 
 // view engine setup
@@ -27,7 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(cors());
 
 mongoose.connect(db, {
   useNewUrlParser: true,
