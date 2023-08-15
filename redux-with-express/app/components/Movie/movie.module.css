@@ -1,0 +1,8 @@
+.movieContainer
+{
+    border:1px solid gray;
+    padding:10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    min-width: 200px;
+}
