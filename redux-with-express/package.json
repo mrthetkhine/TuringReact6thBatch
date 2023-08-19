@@ -2,17 +2,21 @@
   "private": true,
   "scripts": {
     "dev": "next -p 3002",
+    "dev:ts": "yarn dev & yarn ts:watch",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
     "@reduxjs/toolkit": "1.9.5",
+    "axios": "^1.4.0",
     "bootstrap": "^5.3.1",
+    "formik": "^2.4.3",
     "next": "latest",
     "react": "18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "18.2.0",
-    "react-redux": "8.1.0"
+    "react-redux": "8.1.0",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "20.3.1",
