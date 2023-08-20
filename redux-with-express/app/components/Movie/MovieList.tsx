@@ -2,14 +2,19 @@
 import Movie from "@/lib/redux/slices/movieSlice/Movie";
 import MovieUI from "@/app/components/Movie/MovieUI";
 
-export default function MovieList(props: { movies: Movie[] })
+export default function MovieList(props: {
+    movies: Movie[],
+    editHandler : (movie:Movie)=>void
+})
 {
     const {movies} = props;
     return (<div>
         {
             movies.map(movie=><MovieUI
                                 key={movie._id}
-                                movie={movie}/>)
+                                movie={movie}
+                                editHandler ={props.editHandler}
+            />)
         }
     </div>);
 }

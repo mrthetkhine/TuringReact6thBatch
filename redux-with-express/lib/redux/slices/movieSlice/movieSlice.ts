@@ -20,6 +20,13 @@ export const movieSlice = createSlice({
         loadAllMovie: (state,action:PayloadAction<Movie[]>) => {
             state.movies = action.payload;
         },
+        addMovie :(state,action:PayloadAction<Movie>)=>{
+            state.movies = [...state.movies,action.payload];
+        },
+        updateMovie:(state,action:PayloadAction<Movie>)=>{
+            state.movies = state.movies.map(movie=> movie._id ==action.payload._id?
+                                                                    action.payload : movie )
+        },
     },
     extraReducers: (builder) => {
         builder
