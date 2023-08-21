@@ -1,5 +1,5 @@
 import {createAppAsyncThunk} from "@/lib/redux/createAppAsyncThunk";
-import {fetchAllMovie, saveMovie, updateMovie} from "@/lib/redux/slices/movieSlice/movieApi";
+import {deleteMovie, fetchAllMovie, saveMovie, updateMovie} from "@/lib/redux/slices/movieSlice/movieApi";
 import {movieSlice} from "@/lib/redux";
 import Movie from "@/lib/redux/slices/movieSlice/Movie";
 
@@ -25,6 +25,14 @@ export const updateMovieAsync = createAppAsyncThunk(
     async (movie:Movie,thunkApi) => {
         const movies = await updateMovie(movie);
         thunkApi.dispatch(movieSlice.actions.updateMovie(movies.data));
+        return movies.data;
+    }
+)
+export const deleteMovieAsync = createAppAsyncThunk(
+    'movie/deleteMovieAsync',
+    async (movie:Movie,thunkApi) => {
+        const movies = await deleteMovie(movie);
+        thunkApi.dispatch(movieSlice.actions.deleteMovie(movies.data));
         return movies.data;
     }
 )

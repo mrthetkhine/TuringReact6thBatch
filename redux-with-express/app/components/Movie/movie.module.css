@@ -6,3 +6,11 @@
     margin-bottom: 10px;
     min-width: 200px;
 }
+.reviewContainer
+{
+    border:1px solid gray;
+    padding:5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    min-width: 200px;
+}
