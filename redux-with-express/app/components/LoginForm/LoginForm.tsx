@@ -2,7 +2,13 @@
 import * as Yup from "yup";
 import {Button, Modal} from "react-bootstrap";
 import {Field, Form, Formik} from "formik";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content'
+import {authSlice, loginAsync, selectAuth, selectCount, useDispatch, useSelector} from "@/lib/redux";
+import {useRouter} from "next/navigation";
+import { useSearchParams } from 'next/navigation'
 
+const MySwal = withReactContent(Swal);
 const LoginSchema = Yup.object().shape({
     userName: Yup.string()
         .min(2, 'Too Short!')
@@ -14,6 +20,37 @@ const LoginSchema = Yup.object().shape({
 
 export default function LoginForm()
 {
+    const dispatch = useDispatch();
+    const auth = useSelector(selectAuth);
+    console.log('Auth ',auth);
+    const router = useRouter();
+    const searchParams = useSearchParams()
+
+    const redirectUrl = searchParams.get('redirectUrl');
+    console.log('RedirectUrl ',redirectUrl);
+    function loginAction(values: FormikValues,resetForm) {
+        dispatch(loginAsync(values))
+            .unwrap()
+            .then(response => {
+                    console.log('Login thunk response', response);
+                    if(redirectUrl)
+                    {
+                        router.push(redirectUrl);
+
+                    }
+                    else
+                    {
+                        router.push('/');
+                    }
+
+                },
+                 err=> {
+                     console.log('Error case ', err);
+                     MySwal.fire('Invalid username or password');
+                     resetForm();
+                 });
+    }
+
     return (
         <div
             className="modal show container-lg"
@@ -29,8 +66,9 @@ export default function LoginForm()
                 password:'',
             }}
                      validationSchema={LoginSchema}
-                     onSubmit={values => {
+                     onSubmit={(values, { resetForm }) => {
                         console.log('Submit ',values);
+                        loginAction(values,resetForm);
                      }}
             >
                 {({ errors, touched }) => (

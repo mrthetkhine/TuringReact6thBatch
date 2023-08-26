@@ -10,10 +10,11 @@ import Movie from "@/lib/redux/slices/movieSlice/Movie";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content'
 import NewOrUpdateMovieModal from "@/app/movie/NewOrUpdateMovieModal";
+import IsAuth from "@/app/components/Auth/IsAuth";
 
 const MySwal = withReactContent(Swal);
 
-export default function MovieListPage() {
+function MovieListPage() {
   const [show, setShow] = useState(false);
   const [movieToEdit,setMovieToEdit] = useState(null);
 
@@ -77,4 +78,4 @@ export default function MovieListPage() {
 
   </div>);
 }
-
+export default IsAuth(MovieListPage);

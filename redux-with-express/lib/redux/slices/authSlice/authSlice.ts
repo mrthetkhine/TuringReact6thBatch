@@ -14,7 +14,7 @@ export const authSlice = createSlice({
     // The `reducers` field lets us define reducers and generate associated actions
     reducers: {
         login: (state, action: PayloadAction<string>) => {
-            state.token = action.payload
+            state.token = action.payload.token;
         },
         logout: (state) => {
             state.token  = undefined;

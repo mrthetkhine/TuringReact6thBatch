@@ -16,8 +16,9 @@ import {useRouter} from "next/navigation";
 import ReviewList from "@/app/components/Movie/ReviewList";
 import ReviewModal from "@/app/movie/[id]/ReviewModal";
 import Review from "@/lib/redux/slices/reviewSlice/Review";
+import IsAuth from "@/app/components/Auth/IsAuth";
 
-export default function MoviePage({ params }: { params: { id: string } }) {
+function MoviePage({ params }: { params: { id: string } }) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -79,3 +80,4 @@ export default function MoviePage({ params }: { params: { id: string } }) {
       </div>);
 }
 
+export default IsAuth(MoviePage);
